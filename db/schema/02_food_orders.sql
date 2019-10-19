@@ -1,4 +1,5 @@
 -- drops and creates food_orders table
+-- default order status is true/active
 DROP TABLE IF EXISTS food_orders CASCADE;
 
 CREATE TABLE food_orders {
