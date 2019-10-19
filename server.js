@@ -9,6 +9,16 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const ngrok      = require('ngrok');
+
+// ------- Twilio config ------- //
+const accountSid        = 'ACd5e42184d1568069b5ee3c021b544936'; //process.env.TWILIO_ACCOUNT_SID;
+const authToken         = '173cad4172094b6c419727e4de099f4e';   //process.env.TWILIO_AUTH_TOKEN;
+const client            = require('twilio')(accountSid, authToken);
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const twilioNum         = +17784034065;
+
+
 
 // PG database client/connection setup
 const { Pool } = require('pg');

@@ -12,7 +12,7 @@ Jesus wants to change the quantity of a Mains in their cart but wants a differen
 
 Charlttetown is at her friends which is a short 2 minutes from the shop, she knows the rough time until her order is ready but she is having so much fun she loses track of time, luckily a text informing her that her food is done reminds her to pick it up.
 
-Shawna is ordering for a group and needs to add and remove many things from her cart before submitting it because her mishears her friends as they shout over each other at the prospect of food.
+Shawna is ordering for a group and needs to add and remove many things from her cart before submitting it because she mishears her friends as they shout over each other at the prospect of food.
 
 George orders food and he wants to know the time until his order is ready so that he can leave his home and not have to wait at the restaurant.
 
@@ -20,7 +20,7 @@ Sam wants to review his past orders so that he can make a recommendation to his 
 
 Frank wants to select a side for his main, instead of being locked into a side salad as he is allergic to leafy greens, or perhaps he doesn't want any side at all!
 
-Annibelle wants to add more than one menu item to her meal because that his how meals work in her house and gosh darnit society will bend to her will!
+Annibelle wants to add more than one menu item to her meal because that is how meals work in her house and gosh darnit society will bend to her will!
 
 Jeanine wants to specify her allergies because she really wants this certain clearly-dairy-based meal item because she has an allergy to dairy-based products.
 
