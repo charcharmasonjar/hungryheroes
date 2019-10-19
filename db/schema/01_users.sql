@@ -1,5 +1,6 @@
--- creates users table
+-- drops and creates users table
 DROP TABLE IF EXISTS users CASCADE;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   first_name VARCHAR(255) NOT NULL,
