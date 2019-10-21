@@ -33,17 +33,6 @@ $(document).ready(() => {
     const ul_8 = $('#desserts-container');
     for (const item of items) {
       let li = createMenuItemElement(item);
-<<<<<<< HEAD
-      if (item['course_id'] === 1) {
-        ul_1.append(li);
-      } else if (item['course_id'] === 2) {
-        ul_2.append(li);
-      } else if (item['course_id'] === 3) {
-        ul_3.append(li);
-      } else if (item['course_id'] === 4) {
-        ul_4.append(li);
-      } else if (item['course_id'] === 5) {
-=======
       if (item['course_id'] === 1) { //for the table
         ul_1.append(li);
       } else if (item['course_id'] === 2) { //greens
@@ -53,7 +42,6 @@ $(document).ready(() => {
       } else if (item['course_id'] === 4) {//casual
         ul_4.append(li);
       } else if (item['course_id'] === 5) {//seafood
->>>>>>> ec362d6735bda7371e639b9c0cc72c78d1221a34
         ul_5.append(li);
       } else if (item['course_id'] === 6) {//chicken
         ul_6.append(li);
