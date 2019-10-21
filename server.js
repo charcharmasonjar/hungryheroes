@@ -23,6 +23,7 @@ const twilioNum         = +17784034065;
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
+const dbHelpers = require('./dbHelpers.js')(dbParams);
 const db = new Pool(dbParams);
 db.connect();
 

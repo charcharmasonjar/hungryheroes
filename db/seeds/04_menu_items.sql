@@ -56,3 +56,8 @@ INSERT INTO menu_items (title, description, image_url, price, calories, prep_tim
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('COKE', NULL, NULL, 200, null, 1, 10);
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('ICE TEA', NULL, NULL, 200, null, 1, 10);
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SPRITE', NULL, NULL, 200, null, 1, 10);
+-- SIDES --
+INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GRILLED CHICKEN BREAST', NULL, NULL, 500, null, 5, 12);
+INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GRILLED SALMON', NULL, NULL, 800, null, 5, 12);
+INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SAUTEED PRAWNS', NULL, NULL, 800, null, 5, 12);
+

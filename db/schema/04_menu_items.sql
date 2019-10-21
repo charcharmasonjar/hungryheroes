@@ -1,6 +1,6 @@
 -- drops and creates menu_items table
 -- default is that menu items are not on special
-DROP TABLE IF EXISTS menu_items;
+DROP TABLE IF EXISTS menu_items CASCADE;
 
 CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY NOT NULL,
