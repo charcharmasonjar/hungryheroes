@@ -9,14 +9,15 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const ngrok      = require('ngrok');
+const cookieSession = require('cookie-session');
+//const ngrok      = require('ngrok');
 
 // ------- Twilio config ------- //
-const accountSid        = process.env.TWILIO_ACCOUNT_SID;
-const authToken         = process.env.TWILIO_AUTH_TOKEN;
-const client            = require('twilio')(accountSid, authToken);
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const twilioNum         = +17784034065;
+// const accountSid        = process.env.TWILIO_ACCOUNT_SID;
+// const authToken         = process.env.TWILIO_AUTH_TOKEN;
+// const client            = require('twilio')(accountSid, authToken);
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const twilioNum         = +17784034065;
 
 
 
@@ -39,6 +40,11 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+//probably needs to be set in .env, will need to inquire
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+}));
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -57,7 +63,14 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVars = {};
+  if(req.session.userId){
+    templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
+  }
+  if(!req.session.cart){
+    req.session.cart = {};
+  }
+  res.render("index", templateVars);
 });
 
 app.listen(PORT, () => {
