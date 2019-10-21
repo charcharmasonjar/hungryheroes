@@ -1,5 +1,18 @@
 .payment-container {
   display: none;
-  width: 425px; /* same as cart container */
+  padding: 10px;
+  /* below styling is the same as cart container */
+  width: 425px;
+  position: fixed;
+  right: 40px;
+  bottom: 35px;
+  max-height: 80vh;
+  width: 425px;
+  margin: 10px;
+  overflow: hidden;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  z-index: 1000;
 }
 
