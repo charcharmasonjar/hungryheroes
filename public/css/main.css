@@ -1,0 +1,8 @@
+
+
+
+/* makes sure image fills parent container without distortion */
+img {
+  height: 100%;
+  width: 100%
+}
