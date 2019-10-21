@@ -24,8 +24,17 @@ $(document).ready(() => {
   const renderMenuItems = function(items) {
     const ul = $('#for-the-table');
     for (const tweet of tweets) {
-      let article = createTweetElement(tweet);
-      section.prepend(article);
+      let li = createTweetElement(tweet);
+      ul.append(li);
     }
   }
+
+  const loadMenu = function() {
+    $.ajax({ method: 'GET', url: '/menu/' })
+      .then((res) => {
+        renderMenuItems(res);
+      })
+  }
+  // calling loadTweets
+  loadMenu();
 });
