@@ -1,9 +1,8 @@
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client            = require('twilio')(accountSid, authToken);
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const twilioNum         = +17784034065;
-const client = require('twilio')(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client            = require('twilio')(accountSid, authToken);
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const twilioNum         = +17784034065;
 
 
 /* -------- POSSIBLE LOOK for order sent to restaurant-------------
@@ -15,7 +14,7 @@ app.post("/submit", (req, res) => {
 
   let orderId = req.body.orderId;
   let customerNow = {};
-  customerNow['orderId'] = orderId;
+  customerNow['order_Id'] = orderId;
   customerNow['phone'] = req.body.phoneNumber;
   customer.push(customerNow);
 

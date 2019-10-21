@@ -9,21 +9,23 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const ngrok      = require('ngrok');
+const cookieSession = require('cookie-session');
+//const ngrok      = require('ngrok');
 
 // ------- Twilio config ------- //
-const accountSid        = process.env.TWILIO_ACCOUNT_SID;
-const authToken         = process.env.TWILIO_AUTH_TOKEN;
-const client            = require('twilio')(accountSid, authToken);
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const twilioNum         = +17784034065;
+// const accountSid        = process.env.TWILIO_ACCOUNT_SID;
+// const authToken         = process.env.TWILIO_AUTH_TOKEN;
+// const client            = require('twilio')(accountSid, authToken);
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const twilioNum         = +17784034065;
 
 
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const { dbParams } = require('./lib/db.js');
 const db = new Pool(dbParams);
+const dbHelpers = require('./lib/dbHelpers.js')(db);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -39,17 +41,24 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+//probably needs to be set in .env, will need to inquire
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+}));
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const menuRoutes = require("./routes/menu");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/menu", menuRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -57,7 +66,14 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVars = {};
+  if(req.session.userId){
+    templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
+  }
+  if(!req.session.cart){
+    req.session.cart = {};
+  }
+  res.render("index", templateVars);
 });
 
 app.listen(PORT, () => {
