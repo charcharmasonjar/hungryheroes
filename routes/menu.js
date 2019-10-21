@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = (db, dbHelpers) => {
-  router.get("/menu", (req, res) => {
+module.exports = (dbHelpers) => {
+  router.get("/", (req, res) => {
     dbHelpers.getAllMenuItems()
       .then(data => {
-        res.json(data.rows);
+        res.json(data);
       })
       .catch(err => {
         res
@@ -13,5 +13,5 @@ module.exports = (db, dbHelpers) => {
           .json({ error: err.message });
       });
   });
-  return router;
+   return router;
 };

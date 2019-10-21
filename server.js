@@ -23,9 +23,9 @@ const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const { dbParams } = require('./lib/db.js');
 const db = new Pool(dbParams);
-const dbHelpers = require('./lib/dbhelper.js')(db);
+const dbHelpers = require('./lib/dbHelpers.js')(db);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -58,7 +58,7 @@ const menuRoutes = require("./routes/menu");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/", menuRoutes(db)(dbHelpers));
+app.use("/menu", menuRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
 

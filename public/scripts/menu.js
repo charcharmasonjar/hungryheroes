@@ -1,19 +1,18 @@
 //A client side script to deal with menu things
 $(document).ready(() => {
 
-
   const createMenuItemElement = function(item) {
 
     const markup = `
   <li class="menu-item">
     <div class="menu-image">
       <img
-        src="https://www.cactusclubcafe.com/wp-content/uploads/2019/05/051419_TunaPokeBowl_Header_1160px_500px_FINAL2.jpg"
+        src=${item['image_url']}
         alt="">
     </div>
     <div class="menu-item-text">
-      <h2 class="menu-item-title">Wrap, Single Salad & Bottled Water</h2>
-      <p class="menu-item-description">Your choice of wrap & salad.</p>
+      <h2 class="menu-item-title">${item['title']}</h2>
+      <p class="menu-item-description">${item['description']}</p>
     </div>
       <span class="menu-item-price ">$9.95</span>
     </li><!-- /.menu-item --></li>
@@ -22,10 +21,26 @@ $(document).ready(() => {
   }
 
   const renderMenuItems = function(items) {
-    const ul = $('#for-the-table');
-    for (const tweet of tweets) {
-      let li = createTweetElement(tweet);
-      ul.append(li);
+    console.log(items);
+    const ul_1 = $('#for-the-table-container');
+    const ul_2 = $('#greens-container');
+    const ul_3 = $('#bowls-container');
+    const ul_4 = $('#casual-container');
+    const ul_5 = $('#seafood-container');
+    //const ul_6 = $('#');
+    for (const item of items) {
+      let li = createMenuItemElement(item);
+      if(item['course_id'] === 1){
+        ul_1.append(li);
+      } else if(item['course_id'] === 2) {
+        ul_2.append(li);
+      } else if(item['course_id'] === 3) {
+        ul_3.append(li);
+      } else if(item['course_id'] === 4) {
+        ul_4.append(li);
+      } else if(item['course_id'] === 5) {
+        ul_5.append(li);
+      }
     }
   }
 
