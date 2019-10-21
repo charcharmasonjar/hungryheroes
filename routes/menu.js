@@ -13,5 +13,9 @@ module.exports = (dbHelpers) => {
           .json({ error: err.message });
       });
   });
-   return router;
+
+  router.get("/menuSides", (req, res) => {
+    dbHelpers.
+  })
+  return router;
 };

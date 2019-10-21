@@ -30,15 +30,15 @@ $(document).ready(() => {
     //const ul_6 = $('#');
     for (const item of items) {
       let li = createMenuItemElement(item);
-      if(item['course_id'] === 1){
+      if (item['course_id'] === 1) {
         ul_1.append(li);
-      } else if(item['course_id'] === 2) {
+      } else if (item['course_id'] === 2) {
         ul_2.append(li);
-      } else if(item['course_id'] === 3) {
+      } else if (item['course_id'] === 3) {
         ul_3.append(li);
-      } else if(item['course_id'] === 4) {
+      } else if (item['course_id'] === 4) {
         ul_4.append(li);
-      } else if(item['course_id'] === 5) {
+      } else if (item['course_id'] === 5) {
         ul_5.append(li);
       }
     }
