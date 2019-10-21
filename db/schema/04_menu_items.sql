@@ -6,7 +6,7 @@ CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255),
   description TEXT,
-  image_url VARCHAR(255),
+  image_url TEXT,
   price INTEGER,
   calories INTEGER,
   prep_time INTEGER,
