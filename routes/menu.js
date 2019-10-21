@@ -14,8 +14,9 @@ module.exports = (dbHelpers) => {
       });
   });
 
-  router.get("/menuSides", (req, res) => {
-    dbHelpers.
-  })
+  // router.get("/menuSides", (req, res) => {
+  //   dbHelpers.getMenuItemByCourse(11)
+  //     .then()
+  // })
   return router;
 };
