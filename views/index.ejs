@@ -4,6 +4,14 @@
 <head>
   <title>Home Page</title>
 
+  <meta charset="utf-8">
+
+  <!-- Bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -11,9 +19,11 @@
   <link rel="stylesheet" href="/css/header.css" type="text/css" />
   <link rel="stylesheet" href="/css/menu.css" type="text/css" />
   <link rel="stylesheet" href="/css/cart.css" type="text/css" />
+  <link rel="stylesheet" href="/css/payment.css" type="text/css" />
 
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/cart.js"></script>
   <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
   <script type="text/javascript" src="/scripts/menu.js"></script>
 
@@ -38,11 +48,11 @@
         </section><!-- /.menu-group -->
 
         <section class="menu-group">
-            <h4 class="menu-group-title">GREENS</h4>
+          <h4 class="menu-group-title">GREENS</h4>
 
-            <ul class="menu-items" id='greens-container'>
-            </ul><!-- /.menu-items -->
-          </section><!-- /.menu-group -->
+          <ul class="menu-items" id='greens-container'>
+          </ul><!-- /.menu-items -->
+        </section><!-- /.menu-group -->
 
         <section class="menu-group">
           <h4 class="menu-group-title">BOWLS</h4>
@@ -78,15 +88,14 @@
           <ul class="menu-items" id='burgers+sandwiches-container'>
           </ul><!-- /.menu-items -->
         </section><!-- /.menu-group -->
+
+        <section class="menu-group">
+          <h4 class="menu-group-title">DESSERTS</h4>
+
+          <ul class="menu-items" id='desserts-container'>
+          </ul><!-- /.menu-items -->
+        </section><!-- /.menu-group -->
       </div> <!-- /.menu-container -->
-
-      <section class="menu-group">
-        <h4 class="menu-group-title">DESSERTS</h4>
-
-        <ul class="menu-items" id='desserts-container'>
-        </ul><!-- /.menu-items -->
-      </section><!-- /.menu-group -->
-    </div> <!-- /.menu-container -->
 
       <div class="cart-container">
         <div class="cart-header">
@@ -108,14 +117,54 @@
               <h2 class="cart-item-title">Wrap, Soup & Bottled Water</h2>
               <div class="cart-item-price">$9.95</div>
             </li><!-- /.cart-item -->
-
           </ul><!-- /.cart-items -->
+
+          <div class="cart-total">
+            <div class="cart-total-label"><span class="" style="color: rgba(38,42,52,1);font-size: 17px;">Total</span>
+            </div>
+            <div class="cart-total-amount"><span class="" style="color: rgba(38,42,52,1);font-size: 17px;">$25.44</span>
+            </div>
+          </div><!-- /.cart-total -->
         </div><!-- /.cart-body -->
+
+        <div class="cart-footer">
+          <button type="button" class="btn btn-dark btn-block" id="add-payment">ADD PAYMENT</button>
+        </div>
       </div><!-- /.cart-container -->
 
     </main>
 
+    <div class="payment-container">
+      <form action="">
+        <h4 class="mb-3">Payment</h4>
+        <div class="row">
+          <div class="col-12 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <small class="text-muted">Full name as displayed on card</small>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+          </div>
+          <div class="col-6 mb-3">
+            <label for="cc-expiration">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-dark btn-block" type="submit">CHECKOUT</button>
+      </form>
+    </div> <!-- /.payment-container -->
+
   </div> <!-- /page-container -->
+
 </body>
 
 </html>
