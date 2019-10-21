@@ -28,9 +28,10 @@ $(document).ready(() => {
     const ul_3 = $('#bowls-container');
     const ul_4 = $('#casual-container');
     const ul_5 = $('#seafood-container');
-    const ul_6 = $('#chicken-container');
-    const ul_7 = $('#burgers+sandwiches-container');
-    const ul_8 = $('#desserts-container');
+    const ul_6 = $('#pasta-container');
+    const ul_7 = $('#chicken-container');
+    const ul_8 = $('#burgers-sandwiches-container');
+    const ul_9 = $('#desserts-container');
     for (const item of items) {
       let li = createMenuItemElement(item);
       if (item['course_id'] === 1) { //for the table
@@ -41,14 +42,16 @@ $(document).ready(() => {
         ul_3.append(li);
       } else if (item['course_id'] === 4) {//casual
         ul_4.append(li);
-      } else if (item['course_id'] === 5) {//seafood
+      } else if (item['course_id'] === 5) {//pasta
         ul_5.append(li);
-      } else if (item['course_id'] === 6) {//chicken
+      } else if (item['course_id'] === 6) {//seafood
         ul_6.append(li);
-      } else if (item['course_id'] === 7) {//burgers and sandwiches
+      } else if (item['course_id'] === 7) {//chicken
         ul_7.append(li);
-      } else if (item['course_id'] === 8) {//desserts
+      } else if (item['course_id'] === 8) {//burgers and sandwiches
         ul_8.append(li);
+      } else if (item['course_id'] === 9) {//desserts
+        ul_9.append(li);
       }
     }
   }
