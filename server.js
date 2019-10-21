@@ -9,22 +9,22 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const ngrok      = require('ngrok');
+// const ngrok      = require('ngrok');
 
 // ------- Twilio config ------- //
-const accountSid        = process.env.TWILIO_ACCOUNT_SID;
-const authToken         = process.env.TWILIO_AUTH_TOKEN;
-const client            = require('twilio')(accountSid, authToken);
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const twilioNum         = +17784034065;
+// const accountSid        = process.env.TWILIO_ACCOUNT_SID;
+// const authToken         = process.env.TWILIO_AUTH_TOKEN;
+// const client            = require('twilio')(accountSid, authToken);
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const twilioNum         = +17784034065;
 
 
 
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
-const dbHelpers = require('./dbHelpers.js')(dbParams);
 const db = new Pool(dbParams);
+const dbHelpers = require('./lib/dbhelper.js')(db);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
