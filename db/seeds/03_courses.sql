@@ -10,3 +10,4 @@ INSERT INTO courses (id, name) VALUES (8, 'STEAKS');
 INSERT INTO courses (id, name) VALUES (9, 'BURGERS + SANDWICHES');
 INSERT INTO courses (id, name) VALUES (10, 'DESSERTS');
 INSERT INTO courses (id, name) VALUES (11, 'DRINKS');
+INSERT INTO courses (id, name) VALUES (12, 'SIDES');
