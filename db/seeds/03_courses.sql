@@ -6,8 +6,8 @@ INSERT INTO courses (id, name) VALUES (4, 'CASUAL');
 INSERT INTO courses (id, name) VALUES (5, 'SEAFOOD');
 INSERT INTO courses (id, name) VALUES (6, 'PASTA');
 INSERT INTO courses (id, name) VALUES (7, 'CHICKEN');
-INSERT INTO courses (id, name) VALUES (8, 'SIDES');
-INSERT INTO courses (id, name) VALUES (9, 'BURGERS + SANDWICHES');
-INSERT INTO courses (id, name) VALUES (10, 'DESSERTS');
-INSERT INTO courses (id, name) VALUES (11, 'DRINKS');
+INSERT INTO courses (id, name) VALUES (8, 'BURGERS + SANDWICHES');
+INSERT INTO courses (id, name) VALUES (9, 'DESSERTS');
+INSERT INTO courses (id, name) VALUES (10, 'DRINKS');
+INSERT INTO courses (id, name) VALUES (11, 'SIDES');
 
