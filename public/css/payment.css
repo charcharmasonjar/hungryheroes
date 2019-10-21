@@ -1,0 +1,5 @@
+.payment-container {
+  display: none;
+  width: 425px; /* same as cart container */
+}
+
