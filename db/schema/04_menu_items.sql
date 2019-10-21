@@ -1,6 +1,6 @@
 -- drops and creates menu_items table
 -- default is that menu items are not on special
-DROP TABLE IF EXISTS menu_items;
+DROP TABLE IF EXISTS menu_items CASCADE;
 
 CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -11,5 +11,5 @@ CREATE TABLE menu_items (
   calories INTEGER,
   prep_time INTEGER,
   special BOOLEAN NOT NULL DEFAULT FALSE,
-  course_id INTEGER REFERENCES courses(id) NOT NULL
+  course_id INTEGER REFERENCES courses(id) ON DELETE CASCADE NOT NULL
 );
