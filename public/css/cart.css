@@ -11,6 +11,7 @@
   background: white;
   border-radius: 2px;
   box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  z-index: 1000;
 }
 
 .cart-header {
