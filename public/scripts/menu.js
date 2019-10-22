@@ -158,12 +158,14 @@ $(document).ready(() => {
         });
         $(".menu-item-button-cancel").click((event) => {
           const item = $(event.target);
-          $(event.delegateTarget.parentElement.parentElement.parentElement).slideUp("slow", () => {
+          item.closest('.sides-container').slideUp("slow", () => {
           });
+
         });
         $(".add-order").click((event) => {
           const item = $(event.target);
-          $(event.delegateTarget.parentElement.parentElement.parentElement).slideUp("slow", () => {
+          console.log(item);
+          item.closest('.sides-container').slideUp("slow", () => {
           });
         });
       });

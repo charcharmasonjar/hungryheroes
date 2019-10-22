@@ -2,9 +2,13 @@ const cart = {};
 
 $(document).ready(function () {
 
-  $(".add-to-cart").submit(function (event) {
+  
+
+  $(".add-order").submit(function (event) {
     event.preventDefault();
     console.log("default prevented");
+
+
 
   })
 
