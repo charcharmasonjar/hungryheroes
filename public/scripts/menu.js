@@ -108,7 +108,7 @@ $(document).ready(() => {
       `;
     return markup;
   };
-    //creates menu item html elements and attaches them to the correct list in the view
+  //creates menu item html elements and attaches them to the correct list in the view
   const renderMenuItems = function(items) {
     //each course list has a container id
     const ul_1 = $('#for-the-table-container');
@@ -153,7 +153,7 @@ $(document).ready(() => {
         $(".menu-item-container").click((event) => {
           // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
           const item = $(event.delegateTarget.nextElementSibling);
-          item.slideDown("slow", () => {
+          item.slideToggle("slow", () => {
           });
         });
         $(".menu-item-button-cancel").click((event) => {
