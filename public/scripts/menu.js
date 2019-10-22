@@ -14,11 +14,11 @@ $(document).ready(() => {
       <h2 class="menu-item-title">${item['title']}</h2>
       <p class="menu-item-description">${item['description']}</p>
     </div>
-      <span class="menu-item-price ">$9.95</span>
+      <span class="menu-item-price ">$${item['price'] / 100}</span>
     </li><!-- /.menu-item --></li>
     `;
     return markup;
-  }
+  };
   //creates menu item html elements and attaches them to the correct list in the view
   const renderMenuItems = function(items) {
     console.log(items);
@@ -55,6 +55,12 @@ $(document).ready(() => {
       }
     }
   };
+  //toggles sides order when menu item is clicked
+  $(".menu-items").click(() => {
+    $("#sides-container").slideToggle("slow", () => {
+      //done
+    });
+  });
 
   const loadMenu = function() {
     $.ajax({ method: 'GET', url: '/menu/' })
