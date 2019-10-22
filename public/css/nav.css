@@ -33,6 +33,22 @@ nav .stacked span {
   font-size: 23px;
 }
 
+#user-name {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#login {
+  display: block;
+  /* opacity: 1; */
+}
+
+#logout {
+  display: none;
+  /* opacity: 0; */
+}
+
 /* toggle button, with animation */
 
 /* Tablet Styles */
