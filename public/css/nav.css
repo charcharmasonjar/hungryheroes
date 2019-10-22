@@ -34,28 +34,6 @@ nav .stacked span {
 }
 
 /* toggle button, with animation */
-#show-tweeter {
-  background-color: transparent;
-  border: none;
-  animation-name: arrow;
-  animation-duration: 0.6s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
-  outline: none;
-}
-
-/* image for toggle button */
-.fa-angle-double-down {
-  color: red;
-}
-
-/* animation for toggle button */
-@keyframes arrow {
-  0% {transform: translate(0px, -5px)}
-  100% {transform: translate(0px, 0px)}
-}
-
 
 /* Tablet Styles */
 @media only screen and (min-width: 768px) {
