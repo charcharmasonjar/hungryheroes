@@ -21,7 +21,6 @@ $(document).ready(() => {
   }
   //creates menu item html elements and attaches them to the correct list in the view
   const renderMenuItems = function(items) {
-    console.log(items);
     //each course list has a container id
     const ul_1 = $('#for-the-table-container');
     const ul_2 = $('#greens-container');

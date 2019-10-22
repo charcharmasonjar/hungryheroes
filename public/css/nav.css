@@ -1,0 +1,67 @@
+/* css style sheet for navbar */
+nav {
+  height: 80px;
+  width: 100%;
+  background-color: #00bcd4;
+  color: #FFFFFF;
+  z-index: 100;
+}
+
+/* nav wrapper */
+.nav-content {
+  display: flex;
+  margin: 1.5em;
+  justify-content: space-between;
+}
+
+
+nav #logo {
+  font-family: 'Coda Caption', sans-serif;
+  font-size: 32px;
+}
+
+/* flexbox for button with text */
+nav .stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* text for toggle button */
+nav .stacked span {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 23px;
+}
+
+/* toggle button, with animation */
+#show-tweeter {
+  background-color: transparent;
+  border: none;
+  animation-name: arrow;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  outline: none;
+}
+
+/* image for toggle button */
+.fa-angle-double-down {
+  color: red;
+}
+
+/* animation for toggle button */
+@keyframes arrow {
+  0% {transform: translate(0px, -5px)}
+  100% {transform: translate(0px, 0px)}
+}
+
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+}

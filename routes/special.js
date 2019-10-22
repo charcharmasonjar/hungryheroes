@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (dbHelpers) => {
   router.get("/", (req, res) => {
-    dbHelpers.getAllMenuItems()
+    dbHelpers.getAllSpecials()
       .then(data => {
         res.json(data);
       })
