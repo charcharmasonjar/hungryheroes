@@ -57,16 +57,8 @@ INSERT INTO menu_items (title, description, image_url, price, calories, prep_tim
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('ICE TEA', NULL, NULL, 200, null, 1, 10);
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SPRITE', NULL, NULL, 200, null, 1, 10);
 -- SIDES --
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GRILLED CHICKEN BREAST', NULL, NULL, 500, null, 5, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GRILLED SALMON', NULL, NULL, 800, null, 5, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SAUTEED PRAWNS', NULL, NULL, 800, null, 5, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GRILLED AVOCADO', NULL, NULL, 300, null, 3, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SOY GRILLED TOFU', NULL, NULL, 300, null, 3, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GUACAMOLE', NULL, NULL, 200, null, 1, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('CHEDDER CHEESE', NULL, NULL, 100, null, 1, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('MUSHROOMS', NULL, NULL, 200, null, 3, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('BACON', NULL, NULL, 150, null, 2, 11);
+INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SOUP', NULL, NULL, 150, null, 2, 11);
 INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('FRIES', NULL, NULL, 200, null, 2, 11);
-INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('GREEN SALAD', NULL, NULL, 150, null, 2, 11);
+INSERT INTO menu_items (title, description, image_url, price, calories, prep_time, course_id) VALUES ('SALAD', NULL, NULL, 150, null, 2, 11);
 
 
