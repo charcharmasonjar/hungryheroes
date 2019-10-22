@@ -35,7 +35,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="food-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="fries" id="fries">
+      <input type="checkbox" name="fries" id="myCheck">
       <label class="option" for='fries'><div class="sides-title">Fries</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -43,7 +43,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="soup" id="soup">
+      <input type="checkbox" name="soup" id="myCheck">
       <label class="option" for='soup'><div class="sides-title">Soup</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -51,7 +51,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="salad" id="salad">
+      <input type="checkbox" name="salad" id="myCheck">
       <label class="option" for='salad'><div class="sides-title">Salad</div>
       <div class="sides-price">$1.50</div>
       </label>
@@ -68,7 +68,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="drink-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="coke" id="coke">
+      <input type="checkbox" name="coke" id="myCheck">
       <label class="option" for="coke"><div class="sides-title">Coke</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -76,7 +76,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="icetea" id="icetea">
+      <input type="checkbox" name="icetea" id="myCheck">
       <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -84,7 +84,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="sprite" id="sprite">
+      <input type="checkbox" name="sprite" id="myCheck">
       <label class="option" for='sprite'><div class="sides-title">Sprite</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -157,6 +157,7 @@ $(document).ready(() => {
           });
         });
         $(".menu-item-button-cancel").click((event) => {
+          $("input:checkbox").prop("checked", false);
           const item = $(event.target);
           item.closest('.sides-container').slideUp("slow", () => {
           });
