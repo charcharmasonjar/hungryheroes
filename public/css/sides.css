@@ -108,6 +108,6 @@ input[type="checkbox"] {
   z-index: 1;
 }
 
-#menu-item-button-cancel {
+.menu-item-button-cancel {
   background-color: darkgray;
 }
