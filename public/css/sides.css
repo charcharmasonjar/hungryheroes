@@ -1,0 +1,159 @@
+
+
+
+#sides-container {
+  display: none;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  right: 40px;
+  bottom: 35px;
+  max-height: 50vh;
+  margin: 17px 40px;
+  overflow: hidden;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  z-index: 1000;
+}
+
+
+#sides-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+
+.sides-header {
+  width: 100%;
+  min-height: 40px;
+  padding: 15px;
+  background: #00bcd4;
+}
+
+.sides-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.form-order {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.form-row {
+  display:flex;
+  flex-direction: column;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 12px 12px 30px;
+  border-top: 1px solid lightgray;
+}
+
+.list-checkboxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.food-sides {
+  padding: 10px;
+}
+.option {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sides-title {
+  padding-bottom: 7px;
+}
+.sides-price {
+  font-size: 14px;
+  font-weight: 200px;
+}
+
+input[type="checkbox"] {
+  border: 1px solid blue;
+  height: 40px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.sides-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  height: 60px;
+  width: 100%;
+  padding: 10px;
+  z-index: 1;
+}
+
+#menu-item-button-cancel {
+  background-color: darkgray;
+}
+
+/*
+
+.menu-group-title {
+  margin: 0 0 12px;
+  font-size: 11px;
+  color: #bababd;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+  word-wrap: break-word;
+}
+
+.menu-image {
+  width: 30%;
+}
+
+.menu-item-text {
+  width: 100%;
+}
+
+.menu-item-title {
+  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.menu-item-description {
+  margin: 4px 0;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.menu-item-price {
+  font-size: 17px;
+} */

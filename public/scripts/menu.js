@@ -55,10 +55,23 @@ $(document).ready(() => {
       }
     }
   };
-  //toggles sides order when menu item is clicked
+
+  // ----- slides sides order when menu item is clicked
   $(".menu-items").click(() => {
-    $("#sides-container").slideToggle("slow", () => {
+    $("#sides-container").slideDown("slow", () => {
       //done
+    });
+  });
+  // ----- slides side order back up when clicked
+  $("#add-order").click(() => {
+    $("#sides-container").slideUp("slow", () => {
+
+    });
+  });
+  // ----- slides side order back when cancel button is clicked
+  $("#menu-item-button-cancel").click(() => {
+    $("#sides-container").slideUp("slow", () => {
+
     });
   });
 
@@ -66,7 +79,7 @@ $(document).ready(() => {
     $.ajax({ method: 'GET', url: '/menu/' })
       .then((res) => {
         renderMenuItems(res);
-      })
+      });
   };
   // calling loadTweets
   loadMenu();
