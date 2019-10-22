@@ -1,6 +1,10 @@
-
+/* ~~~~~~~ app.js ~~~~~~~ */
 
 $(document).ready(function() {
+
+  /* ======= Nav Listeners ======= */
+
+  /* ------- User Login (not secure atm) ------- */
   $('#login').click(function() {
     const nameSpace = $('#user-name');
     $.ajax({
@@ -16,6 +20,7 @@ $(document).ready(function() {
     });
   })
 
+  /* ------- User Logout ------- */
   $('#logout').click(function() {
     $.ajax({
       method: "GET",

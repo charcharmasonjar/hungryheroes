@@ -1,7 +1,9 @@
-
+/* ~~~~~~~ users.js - User Routes ~~~~~~~ */
 const express = require('express');
 const router = express.Router();
 
+/* ------- Login Route ------- */
+/* ------- (only gets first user in db) ------- */
 module.exports = (db) => {
   router.get("/login", (req, res) => {
     db.query(`SELECT * FROM users WHERE id = 1;`)
@@ -17,6 +19,7 @@ module.exports = (db) => {
       });
   });
 
+/* ------- Logout Route ------- */
   router.get("/logout", (req, res) => {
     if (req.session.userId) {
       req.session.userId = null;
