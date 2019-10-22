@@ -5,6 +5,7 @@ $(document).ready(() => {
     //current markup for a menu item in html
     const markup = `
   <li class="menu-item">
+  <div class="menu-item-container">
     <div class="menu-image">
       <img
         src=${item['image_url']}
@@ -15,13 +16,101 @@ $(document).ready(() => {
       <p class="menu-item-description">${item['description']}</p>
     </div>
       <span class="menu-item-price ">$${item['price'] / 100}</span>
-    </li><!-- /.menu-item --></li>
-    `;
+    </div>
+      <section class="sides-container" id="sides-container-${item['id']}">
+      <div class="menu-item" id="sides-item">
+      <div class="sides-header">
+      <span class="" style="font-size: 20px;font-weight: 500;color:white">EXTRAS</span>
+      <br>
+      <span class="" style="font-size: 12px;color: white">Would you like to add a side for your meal?</span>
+      </div>
+      <div class="sides-body">
+      <div class="form-order">
+      <form class="form-body">
+      <div class="form-row" style="">
+      <label class="form-label">
+      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a side</span>
+      </label>
+      <div class="form-controls">
+      <ul class="list-checkboxes" id="food-sides">
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="fries" id="fries">
+      <label class="option" for='fries'><div class="sides-title">Fries</div>
+      <div class="sides-price">$2.00</div>
+      </label>
+      </div>
+      </li>
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="soup" id="soup">
+      <label class="option" for='soup'><div class="sides-title">Soup</div>
+      <div class="sides-price">$2.00</div>
+      </label>
+      </div>
+      </li>
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="salad" id="salad">
+      <label class="option" for='salad'><div class="sides-title">Salad</div>
+      <div class="sides-price">$1.50</div>
+      </label>
+      </div>
+      </li>
+      </ul>
+      </div>
+      </div>
+      <div class="form-row">
+      <label class="form-label">
+      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a drink</span>
+      </label>
+      <div class="form-controls">
+      <ul class="list-checkboxes" id="drink-sides">
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="coke" id="coke">
+      <label class="option" for="coke"><div class="sides-title">Coke</div>
+      <div class="sides-price">$2.00</div>
+      </label>
+      </div>
+      </li>
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="icetea" id="icetea">
+      <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
+      <div class="sides-price">$2.00</div>
+      </label>
+      </div>
+      </li>
+      <li class="list-sides">
+      <div class="checkbox">
+      <input type="checkbox" name="sprite" id="sprite">
+      <label class="option" for='sprite'><div class="sides-title">Sprite</div>
+      <div class="sides-price">$2.00</div>
+      </label>
+      </div>
+      </li>
+      </ul>
+      </div>
+      </div>
+      </form>
+      </div>
+      </div>
+      <div class="sides-footer">
+      <div class="form-actions">
+      <button type="button" value="Submit" class="btn btn-dark btn-block" id="add-order">ADD TO ORDER</button>
+      </div>
+      <button class="btn btn-default" id="menu-item-button-cancel">CANCEL</button>
+      </div>
+      </div>
+      </section>
+      </li><!-- /.menu-item --></li>
+      `;
     return markup;
   };
-  //creates menu item html elements and attaches them to the correct list in the view
+    //creates menu item html elements and attaches them to the correct list in the view
   const renderMenuItems = function(items) {
-    console.log(items);
+    //console.log(items);
     //each course list has a container id
     const ul_1 = $('#for-the-table-container');
     const ul_2 = $('#greens-container');
@@ -56,29 +145,27 @@ $(document).ready(() => {
     }
   };
 
-  // ----- slides sides order when menu item is clicked
-  $(".menu-items").click(() => {
-    $("#sides-container").slideDown("slow", () => {
-      //done
-    });
-  });
-  // ----- slides side order back up when clicked
-  $("#add-order").click(() => {
-    $("#sides-container").slideUp("slow", () => {
 
-    });
-  });
-  // ----- slides side order back when cancel button is clicked
-  $("#menu-item-button-cancel").click(() => {
-    $("#sides-container").slideUp("slow", () => {
 
-    });
-  });
 
   const loadMenu = function() {
     $.ajax({ method: 'GET', url: '/menu/' })
       .then((res) => {
         renderMenuItems(res);
+        $(".menu-item-container").click((event) => {
+          // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
+          const item = $(event.delegateTarget.nextElementSibling);
+          item.slideDown("slow", () => {
+          });
+        });
+        $(".sides-container").click((event) => {
+          $(event.delegateTarget).slideUp("slow", () => {
+          });
+        });
+        $("#add-order").click((event) => {
+          $(event.delegateTarget).slideUp("slow", () => {
+          });
+        });
       });
   };
   // calling loadTweets

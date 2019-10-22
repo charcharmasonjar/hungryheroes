@@ -19,15 +19,20 @@
   font-weight: bold;
 }
 
-.menu-item {
+.menu-item-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 19px;
   word-wrap: break-word;
+  z-index: 5;
 }
 
+.menu-item {
+  display: flex;
+  flex-direction: column;
+}
 .menu-image {
   width: 30%;
 }
