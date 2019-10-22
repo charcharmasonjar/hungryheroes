@@ -98,9 +98,9 @@ $(document).ready(() => {
       </div>
       <div class="sides-footer">
       <div class="form-actions">
-      <button type="button" value="Submit" class="btn btn-dark btn-block" id="add-order">ADD TO ORDER</button>
+      <button type="button" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
       </div>
-      <button class="btn btn-default" id="menu-item-button-cancel">CANCEL</button>
+      <button class="btn btn-default menu-item-button-cancel">CANCEL</button>
       </div>
       </div>
       </section>
@@ -146,7 +146,6 @@ $(document).ready(() => {
 
 
 
-
   const loadMenu = function() {
     $.ajax({ method: 'GET', url: '/menu/' })
       .then((res) => {
@@ -157,12 +156,14 @@ $(document).ready(() => {
           item.slideDown("slow", () => {
           });
         });
-        $(".sides-container").click((event) => {
-          $(event.delegateTarget).slideUp("slow", () => {
+        $(".menu-item-button-cancel").click((event) => {
+          const item = $(event.target);
+          $(event.delegateTarget.parentElement.parentElement.parentElement).slideUp("slow", () => {
           });
         });
-        $("#add-order").click((event) => {
-          $(event.delegateTarget).slideUp("slow", () => {
+        $(".add-order").click((event) => {
+          const item = $(event.target);
+          $(event.delegateTarget.parentElement.parentElement.parentElement).slideUp("slow", () => {
           });
         });
       });
