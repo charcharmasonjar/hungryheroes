@@ -8,14 +8,16 @@ const cartRoutes = express.Router();
 const cookieSession = require('cookie-session');
 const app = express();
 
-app.set('trust proxy', 1) // trust first proxy
+app.set('trust proxy', 1); // trust first proxy
 
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
-}))
+}));
 
 module.exports = (dbHelpers) => {
+
+
   cartRoutes.post("/", (req, res) => {
     const menuItem = req.body.title;
     const price = req.body.price;
