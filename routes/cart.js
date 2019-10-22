@@ -15,15 +15,8 @@ app.use(cookieSession({
   keys: ['key1', 'key2']
 }))
 
-
-
 module.exports = (dbHelpers) => {
   cartRoutes.post("/", (req, res) => {
-    // testing if getOrderInfo function is working
-    // dbHelpers.getOrderInfo(1).then (res => {
-    //   console.log(res);
-    // })
-
     const menuItem = req.body.title;
     const price = req.body.price;
     if (!req.session.cart[menuItem]) {
@@ -36,7 +29,6 @@ module.exports = (dbHelpers) => {
       req.session.cart[menuItem].price = Number(req.session.cart[menuItem].price) + Number(price);
     }
     res.status(200).json(req.session.cart);
-
   });
   return cartRoutes;
 };
