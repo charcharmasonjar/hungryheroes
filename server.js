@@ -74,9 +74,6 @@ app.get("/", (req, res) => {
   if(req.session.userId){
     templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
   }
-  if(!req.session.cart){
-    req.session.cart = {};
-  }
   res.render("index", templateVars);
 });
 

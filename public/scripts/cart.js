@@ -1,3 +1,5 @@
+const cart = {};
+
 $(document).ready(function () {
 
   $(".add-to-cart").submit(function (event) {
