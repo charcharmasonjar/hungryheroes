@@ -172,11 +172,10 @@ $(document).ready(() => {
         });
 
         $(".add-order").click(function (event) {
+
           const formId = $(event.target).attr('form');
 
-          console.log(res);
-
-          //gets the formValues from the form and adds them to the formValues object
+          //gets the values from the form and adds them to the cart object
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
 
             if (field.name === 'main') {
@@ -203,8 +202,6 @@ $(document).ready(() => {
               }
             }
           });
-
-          // toLocaleString("en-US", {style: "currency", currency: "CAD"}
           console.log(cart);
 
           // replaces cart items container with everything in the cart
@@ -228,6 +225,10 @@ $(document).ready(() => {
 
           // calling updateCart
           updateCart();
+
+          //slides payment button and cart total into view
+          $('.hide-cart').slideDown("slow", () => {
+          });
 
         })
       });

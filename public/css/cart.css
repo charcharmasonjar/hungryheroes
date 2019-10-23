@@ -83,3 +83,8 @@
   padding: 10px;
   z-index: 1;
 }
+
+/* total and payment button are hidden until user adds something to cart */
+.hide-cart {
+  display: none;
+}
