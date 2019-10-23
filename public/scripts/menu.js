@@ -194,7 +194,7 @@ $(document).ready(() => {
               const menuItemRow = res.filter(menuItem => menuItem.title === field.name);
               if (cart[field.name]) {
                 cart[field.name].amount += 1;
-                cart[field.name].price += menuItemRow[0] / 100;
+                cart[field.name].price += menuItemRow[0].price / 100;
               } else {
                 cart[field.name] = {
                   amount: 1,
@@ -210,8 +210,10 @@ $(document).ready(() => {
           // replaces cart items container with everything in the cart
           // called each time an item is added to order
           const updateCart = function () {
+            let totalPrice = 0;
             let markup = `<ul class="cart-items">`
             for (const item in cart) {
+              totalPrice += cart[item].price;
               markup += `
               <li class="cart-item">
                 <div class="cart-item-quantity">${cart[item].amount}</div>
@@ -221,6 +223,7 @@ $(document).ready(() => {
             }
             markup += `</ul><!-- /.cart-items -->`
             $('.cart-items').replaceWith(markup);
+            $('.cart-total-amount').html(totalPrice);
           }
 
           // calling updateCart
