@@ -4,108 +4,106 @@ $(document).ready(() => {
   const createMenuItemElement = function (item) {
     //current markup for a menu item in html
     const markup = `
-  <li class="menu-item">
-  <div class="menu-item-container">
-    <div class="menu-image">
-      <img
-        src=${item['image_url']}
-        alt="">
-    </div>
-    <div class="menu-item-text">
-      <h2 class="menu-item-title">${item['title']}</h2>
-      <p class="menu-item-description">${item['description']}</p>
-    </div>
-      <span class="menu-item-price ">$${item['price'] / 100}</span>
-    </div>
-      <section class="sides-container" id="sides-container-${item['id']}">
-      <div class="menu-item" id="sides-item">
-      <div class="sides-header">
-      <span class="" style="font-size: 20px;font-weight: 500;color:white">EXTRAS</span>
-      <br>
-      <span class="" style="font-size: 12px;color: white">Would you like to add a side for your meal?</span>
-      </div>
-      <div class="sides-body">
-      <div class="form-order">
-      <form class="form-body" action="/cart" method="POST" id="item-${item['id']}">
-      <input type="hidden" name="main" value="${item['title']}">
-
-      <div class="form-row" style="">
-      <label class="form-label">
-      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a side</span>
-      </label>
-      <div class="form-controls">
-      <ul class="list-checkboxes" id="food-sides">
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="FRIES" id="fries">
-      <label class="option" for='fries'><div class="sides-title">Fries</div>
-      <div class="sides-price">$2.00</div>
-      </label>
-      </div>
-      </li>
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="SOUP" id="soup">
-      <label class="option" for='soup'><div class="sides-title">Soup</div>
-      <div class="sides-price">$2.00</div>
-      </label>
-      </div>
-      </li>
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="SALAD" id="salad">
-      <label class="option" for='salad'><div class="sides-title">Salad</div>
-      <div class="sides-price">$1.50</div>
-      </label>
-      </div>
-      </li>
-      </ul>
-      </div>
-      </div>
-      <div class="form-row">
-      <label class="form-label">
-      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a drink</span>
-      </label>
-      <div class="form-controls">
-      <ul class="list-checkboxes" id="drink-sides">
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="COKE" id="coke">
-      <label class="option" for="coke"><div class="sides-title">Coke</div>
-      <div class="sides-price">$2.00</div>
-      </label>
-      </div>
-      </li>
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="ICE TEA" id="icetea">
-      <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
-      <div class="sides-price">$2.00</div>
-      </label>
-      </div>
-      </li>
-      <li class="list-sides">
-      <div class="checkbox">
-      <input type="checkbox" name="SPRITE" id="sprite">
-      <label class="option" for='sprite'><div class="sides-title">Sprite</div>
-      <div class="sides-price">$2.00</div>
-      </label>
-      </div>
-      </li>
-      </ul>
-      </div>
-      </div>
-      </form>
-      </div>
-      </div>
-      <div class="sides-footer">
-      <div class="form-actions">
-      <button type="button" form="item-${item['id']}" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
-      </div>
-      <button class="btn btn-default menu-item-button-cancel">CANCEL</button>
-      </div>
-      </div>
-      </section>
+      <li class="menu-item">
+        <div class="menu-item-container">
+          <div class="menu-image">
+            <img
+              src=${item['image_url']}
+              alt="">
+          </div>
+          <div class="menu-item-text">
+            <h2 class="menu-item-title">${item['title']}</h2>
+            <p class="menu-item-description">${item['description']}</p>
+          </div>
+          <span class="menu-item-price ">$${(item['price'] / 100).toFixed(2)}</span>
+        </div>
+        <section class="sides-container" id="sides-container-${item['id']}">
+          <div class="sides-item">
+            <div class="sides-header">
+              <span class="" style="font-size: 20px;font-weight: 500;color:white">EXTRAS</span>
+              <br>
+              <span class="" style="font-size: 12px;color: white">Would you like to add a side for your meal?</span>
+            </div>
+            <div class="sides-body">
+              <div class="form-order">
+                <form class="form-body">
+                  <div class="form-row" style="">
+                    <label class="form-label">
+                      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a side</span>
+                    </label>
+                    <div class="form-controls">
+                      <ul class="list-checkboxes" id="food-sides">
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="fries" id="myCheck">
+                            <label class="option" for='fries'><div class="sides-title">Fries</div>
+                              <div class="sides-price">$2.00</div>
+                            </label>
+                          </div>
+                        </li>
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="soup" id="myCheck">
+                            <label class="option" for='soup'><div class="sides-title">Soup</div>
+                              <div class="sides-price">$2.00</div>
+                            </label>
+                          </div>
+                        </li>
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="salad" id="myCheck">
+                            <label class="option" for='salad'><div class="sides-title">Salad</div>
+                                <div class="sides-price">$1.50</div>
+                            </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label class="form-label">
+                      <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a drink</span>
+                    </label>
+                    <div class="form-controls">
+                      <ul class="list-checkboxes" id="drink-sides">
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="coke" id="myCheck">
+                            <label class="option" for="coke"><div class="sides-title">Coke</div>
+                              <div class="sides-price">$2.00</div>
+                            </label>
+                          </div>
+                        </li>
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="icetea" id="myCheck">
+                            <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
+                              <div class="sides-price">$2.00</div>
+                            </label>
+                          </div>
+                        </li>
+                        <li class="list-sides">
+                          <div class="checkbox">
+                            <input type="checkbox" name="sprite" id="myCheck">
+                            <label class="option" for='sprite'><div class="sides-title">Sprite</div>
+                              <div class="sides-price">$2.00</div>
+                            </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="sides-footer">
+              <div class="form-actions">
+                <button type="button" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
+              </div>
+              <button class="btn btn-default menu-item-button-cancel">CANCEL</button>
+            </div>
+          </div>
+        </section>
       </li><!-- /.menu-item --></li>
       `;
     return markup;
@@ -156,18 +154,33 @@ $(document).ready(() => {
         $(".menu-item-container").click((event) => {
           // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
           const item = $(event.delegateTarget.nextElementSibling);
-          item.slideDown("slow", () => {
+          // ----- closes all other open sides-menus if opening a new side-menu ----- //
+          if(item.is(':hidden')){
+            $('.menu-item').removeClass('menu-shadow');
+            $('.sides-container').slideUp('slow',() => {
+            });
+          }
+          // ----- if open, closes the menu and gets ride of shadow, if closed opens the menu and adds the shadow ----- //
+          item.closest('.menu-item').toggleClass('menu-shadow');
+          item.slideToggle("slow", () => {
+            $("input:checkbox").prop("checked", false);
           });
         });
+        // ----- closes the sides-menu with the cancel button, reseting the checkboxes.----- //
         $(".menu-item-button-cancel").click((event) => {
           const item = $(event.target);
+          item.closest('.menu-item').removeClass('menu-shadow');
           item.closest('.sides-container').slideUp("slow", () => {
+            $("input:checkbox").prop("checked", false);
           });
 
         });
+        // ----- same as cancel button for menu closing purposes ----- //
         $(".add-order").click((event) => {
           const item = $(event.target);
+          item.closest('.menu-item').removeClass('menu-shadow');
           item.closest('.sides-container').slideUp("slow", () => {
+            $("input:checkbox").prop("checked", false);
           });
         });
 
@@ -233,6 +246,6 @@ $(document).ready(() => {
         })
       });
   };
-  // calling loadMenu
+  // ----- calling loadTweets ----- //
   loadMenu();
 });
