@@ -35,4 +35,8 @@ $(document).ready(function() {
         });
       });
     });
+
+    $('#user-name').click(function() {
+      $('#phone-changer').slideToggle('slow');
+    })
 });
