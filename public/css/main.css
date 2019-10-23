@@ -4,7 +4,7 @@ body {
   font-size: 14px;
   line-height: 1.3;
   color: rgb(62, 60, 73);
-  max-height: 100vh;
+  /* max-height: 100vh; */
 }
 
 /* makes sure image fills parent container without distortion */
@@ -22,6 +22,7 @@ ul {
 
 /* container around all page elements */
 .page-container {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -32,39 +33,3 @@ ul {
   display: flex;
   flex-direction: row;
 }
-
- /* Tablet Styles */
- /* @media only screen and (max-width: 1024px) { */
-  /* gives the content of the page an internal scroll (header with main) */
-  #internals-container {
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-start;
-    overflow-y: scroll;
-    height: calc(100vh - 120px);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  #internals-container::-webkit-scrollbar {
-    display: none;
-  }
-
-/* Desktop styles */
-/* @media only screen and (min-width: 1024px) {
-  /* allows the main to scroll without scrolling the header */
-   /* {
-    width: 50%;
-    margin: auto;
-    overflow-x: scroll;
-    height: calc(100vh - 120px);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  main::-webkit-scrollbar {
-    display: none;
-  } */
-  /* changes the contents of the page to a row format header<->main */
-  /* #content {
-    flex-direction: row;
-  } */

@@ -5,6 +5,8 @@ nav {
   background-color: #00bcd4;
   color: #FFFFFF;
   z-index: 100;
+  position: fixed;
+  top: 0px;
 }
 
 /* nav wrapper */
