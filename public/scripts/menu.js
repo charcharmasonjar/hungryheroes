@@ -78,7 +78,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="ICETEA" id="icetea">
+      <input type="checkbox" name="ICE TEA" id="icetea">
       <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -218,12 +218,12 @@ $(document).ready(() => {
               <li class="cart-item">
                 <div class="cart-item-quantity">${cart[item].amount}</div>
                 <h2 class="cart-item-title">${item}</h2>
-                <div class="cart-item-price">$${cart[item].price}</div>
+                <div class="cart-item-price">$${(cart[item].price).toFixed(2)}</div>
               </li><!-- /.cart-item -->`;
             }
             markup += `</ul><!-- /.cart-items -->`
             $('.cart-items').replaceWith(markup);
-            $('.cart-total-amount').html(totalPrice);
+            $('.cart-total-amount').html(`$${totalPrice.toFixed(2)}`);
           }
 
           // calling updateCart
