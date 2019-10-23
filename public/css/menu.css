@@ -60,7 +60,11 @@
 }
 
 .menu-item-price {
-  /* padding-left: 10px; */
+  padding-right: 7px;
   font-size: 17px;
   font-weight: bold;
 }
+
+.menu-shadow {
+  box-shadow: 0 0 8px rgba(34,34,34,0.55);
+ }
