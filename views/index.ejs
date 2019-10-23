@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
+  <!-- External CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <!-- css -->
+  <!-- App CSS -->
   <link rel="stylesheet" href="/css/main.css" type="text/css" />
   <link rel="stylesheet" href="/css/header.css" type="text/css" />
   <link rel="stylesheet" href="/css/menu.css" type="text/css" />
@@ -26,13 +27,18 @@
   <link rel="stylesheet" href="/css/nav.css" type="text/css" />
   <link rel="stylesheet" href="/css/slideshow.css" type="text/css" />
 
-  <!-- fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|IBM+Plex+Sans+Condensed:400,600,700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Changa+One:400i&display=swap" rel="stylesheet">
 
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+  <!-- App JS -->
   <script type="text/javascript" src="/scripts/cart.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/menu.js"></script>
@@ -132,37 +138,23 @@
 
       <div class="cart-container">
         <div class="cart-header">
-          <span class="" style="font-size: 16px;font-weight: 500;color: white">HUNGRY
-            HERO
-            SUCCULENT CLUB</span><br>
-          <span class="" style="font-size: 12px;color: white">401 W Georgia
-            Street</span>
+          <i class="fa fa-shopping-cart fa-3x fa-white"></i>
         </div>
-        <div class="cart-body">
-          <ul class="cart-items">
-            <li class="cart-item">
-              <div class="cart-item-quantity">1</div>
-              <h2 class="cart-item-title">Wrap, Soup & Bottled Water</h2>
-              <div class="cart-item-price">$9.95</div>
-            </li><!-- /.cart-item -->
-            <li class="cart-item">
-              <div class="cart-item-quantity">1</div>
-              <h2 class="cart-item-title">Wrap, Soup & Bottled Water</h2>
-              <div class="cart-item-price">$9.95</div>
-            </li><!-- /.cart-item -->
-          </ul><!-- /.cart-items -->
+        <div class="hide-cart">
+          <div class="cart-body">
+            <ul class="cart-items">
+            </ul><!-- /.cart-items -->
 
-          <div class="cart-total">
-            <div class="cart-total-label"><span class="" style="color: rgba(38,42,52,1);font-size: 17px;">Total</span>
-            </div>
-            <div class="cart-total-amount"><span class="" style="color: rgba(38,42,52,1);font-size: 17px;">$25.44</span>
-            </div>
-          </div><!-- /.cart-total -->
-        </div><!-- /.cart-body -->
+            <div class="cart-total">
+              <div class="cart-total-label">Total</div>
+              <div class="cart-total-amount">Your cart is empty</div>
+            </div><!-- /.cart-total -->
+          </div><!-- /.cart-body -->
 
-        <div class="cart-footer">
-          <button type="button" class="btn btn-dark btn-block" id="add-payment">ADD PAYMENT</button>
-        </div>
+          <div class="cart-footer">
+            <button type="button" class="btn btn-dark btn-block" id="add-payment">ADD PAYMENT</button>
+          </div>
+        </div> <!-- /.hide-cart -->
       </div><!-- /.cart-container -->
 
     </main>

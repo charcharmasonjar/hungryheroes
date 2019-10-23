@@ -15,10 +15,18 @@
 }
 
 .cart-header {
-  width: 100%;
-  min-height: 80px;
+  min-height: 60px;
   padding: 15px;
   background: #00bcd4;
+}
+
+.fa-white {
+  color: white;
+  filter: drop-shadow(2px 2px 2px rgb(113, 113, 113));
+}
+
+.fa-white:hover {
+  filter: drop-shadow(4px 4px 4px rgba(34,34,34,0.55));
 }
 
 .cart-body {
@@ -36,21 +44,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 12px 12px 12px 30px;
+  padding: 12px 20px 12px 20px;
 }
 
 .cart-item-quantity {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: bold;
+  color: rgba(7,150,193,1);
 }
 
 .cart-item-title {
-  margin: 0 0 2px;
+  margin: 0;
+  width: 100%;
   font-size: 17px;
   font-weight: 300;
-  width: 100%;
   line-height: 20px;
   padding-left: 10px;
   padding-right: 44px;
@@ -65,8 +72,10 @@
   flex-direction: row;
   justify-content: space-between;
   border-top: 1px solid lightgray;
-  padding: 10px 30px 10px 30px;
-  font-weight: bold
+  padding: 12px 20px 12px 20px;
+  font-weight: bold;
+  font-size: 17px;
+  color: rgba(38,42,52,1);
 }
 
 .cart-footer {
@@ -80,4 +89,9 @@
   width: 100%;
   padding: 10px;
   z-index: 1;
+}
+
+/* total and payment button are hidden until user adds something to cart */
+.hide-cart {
+  display: none;
 }

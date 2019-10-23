@@ -2,20 +2,16 @@ const cart = {};
 
 $(document).ready(function () {
 
-  
-
-  $(".add-order").submit(function (event) {
-    event.preventDefault();
-    console.log("default prevented");
-
-
-
+  //cart-body when cart header is clicked
+  $(".cart-header").click(() => {
+    $(".hide-cart").slideToggle("slow", () => {
+      //done
+    });
   })
-
 
   //toggles write payment form when add payment button is clicked
   $("#add-payment").click(() => {
-    $(".payment-container").slideToggle("fast", () => {
+    $(".payment-container").slideToggle("slow", () => {
       //done
     });
   })
