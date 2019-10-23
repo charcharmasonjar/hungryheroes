@@ -16,7 +16,6 @@
 /* Hide the images by default */
 .mySlides {
   display: none;
-  -webkit-text-stroke-width: medium;
 }
 
 .mySides img {
@@ -72,4 +71,21 @@
   top: 8px;
   width: 100%;
   text-align: center;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3.6s;
+  animation-name: fade;
+  animation-duration: 3.6s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }

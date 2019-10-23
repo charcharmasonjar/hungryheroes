@@ -2,13 +2,13 @@
 $(document).ready(() => {
 
   //inital slide index, relevant for slideshow position
-  let slideIndex = 1;
-  
+  let slideIndex = 0;
+
   //populates an html element with data from a menu item on special in the db
   const createSpecialElement = function(item) {
     //current markup for a menu item on special in html
     const markup = `
-    <div class="mySlides">
+    <div class="mySlides fade">
     <img src=${item['image_url']} style="width:100%">
     <div class="title">HUNGRY HEROES</div>
     <div class="text">${item['title']}</div>
@@ -34,28 +34,40 @@ $(document).ready(() => {
       })
       //this sets the first item to be visible
       .then(() => {
-        showSlides(slideIndex);
+        showSlides();
       })
   }
 
 
 
   //sets all items to be invisible and then sets the relevant indexed slide to be visible
-  const showSlides = function(n) {
-    const slides = $(".slideshow-container")[0]['children'];
-    if (n > slides.length - 2) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length - 2 }
-    for (i = 2; i < slides.length; i++) {
+  // const showSlides = function(n) {
+  //   const slides = $(".slideshow-container")[0]['children'];
+  //   if (n > slides.length - 2) { slideIndex = 1 }
+  //   if (n < 1) { slideIndex = slides.length - 2 }
+  //   for (i = 2; i < slides.length; i++) {
+  //     slides[i].style.display = "none";
+  //   }
+  //   slides[slideIndex + 1].style.display = "block";
+  //   // setTimeout(showSlides(slideIndex += 1), 2000);
+  // }
+
+  function showSlides() {
+    var i;
+    const slides = $(".mySlides");
+    for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    slides[slideIndex + 1].style.display = "block";
-  }
-
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3600); // Change image every 2 seconds
+  };
   // calling loadSpecials
   loadSpecials();
 
   //click event captures for the prev and next buttons
-  $('.prev').click(function() { showSlides(slideIndex += -1) });
-  $('.next').click(function() { showSlides(slideIndex += 1) });
+  // $('.prev').click(function() { showSlides(slideIndex += -1) });
+  // $('.next').click(function() { showSlides(slideIndex += 1) });
 
 });
