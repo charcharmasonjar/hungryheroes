@@ -1,7 +1,7 @@
 //A client side script to deal with menu things
 $(document).ready(() => {
   //populates an html element with data from a menu item in the db
-  const createMenuItemElement = function(item) {
+  const createMenuItemElement = function (item) {
     //current markup for a menu item in html
     const markup = `
   <li class="menu-item">
@@ -26,7 +26,9 @@ $(document).ready(() => {
       </div>
       <div class="sides-body">
       <div class="form-order">
-      <form class="form-body">
+      <form class="form-body" action="/cart" method="POST" id="item-${item['id']}">
+      <input type="hidden" name="main" value="${item['title']}">
+
       <div class="form-row" style="">
       <label class="form-label">
       <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a side</span>
@@ -35,7 +37,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="food-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="fries" id="myCheck">
+      <input type="checkbox" name="fries" id="fries">
       <label class="option" for='fries'><div class="sides-title">Fries</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -43,7 +45,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="soup" id="myCheck">
+      <input type="checkbox" name="soup" id="soup">
       <label class="option" for='soup'><div class="sides-title">Soup</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -51,7 +53,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="salad" id="myCheck">
+      <input type="checkbox" name="salad" id="salad">
       <label class="option" for='salad'><div class="sides-title">Salad</div>
       <div class="sides-price">$1.50</div>
       </label>
@@ -68,7 +70,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="drink-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="coke" id="myCheck">
+      <input type="checkbox" name="coke" id="coke">
       <label class="option" for="coke"><div class="sides-title">Coke</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -76,7 +78,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="icetea" id="myCheck">
+      <input type="checkbox" name="icetea" id="icetea">
       <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -84,7 +86,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="sprite" id="myCheck">
+      <input type="checkbox" name="sprite" id="sprite">
       <label class="option" for='sprite'><div class="sides-title">Sprite</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -98,7 +100,7 @@ $(document).ready(() => {
       </div>
       <div class="sides-footer">
       <div class="form-actions">
-      <button type="button" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
+      <button type="button" form="item-${item['id']}" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
       </div>
       <button class="btn btn-default menu-item-button-cancel">CANCEL</button>
       </div>
@@ -108,8 +110,8 @@ $(document).ready(() => {
       `;
     return markup;
   };
-    //creates menu item html elements and attaches them to the correct list in the view
-  const renderMenuItems = function(items) {
+  //creates menu item html elements and attaches them to the correct list in the view
+  const renderMenuItems = function (items) {
     //each course list has a container id
     const ul_1 = $('#for-the-table-container');
     const ul_2 = $('#greens-container');
@@ -146,9 +148,10 @@ $(document).ready(() => {
 
 
 
-  const loadMenu = function() {
-    $.ajax({ method: 'GET', url: '/menu/' })
+  const loadMenu = function () {
+    $.ajax({ method: 'GET', url: '/menu' })
       .then((res) => {
+        console.log(res)
         renderMenuItems(res);
         $(".menu-item-container").click((event) => {
           // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
@@ -157,7 +160,6 @@ $(document).ready(() => {
           });
         });
         $(".menu-item-button-cancel").click((event) => {
-          $("input:checkbox").prop("checked", false);
           const item = $(event.target);
           item.closest('.sides-container').slideUp("slow", () => {
           });
@@ -165,10 +167,37 @@ $(document).ready(() => {
         });
         $(".add-order").click((event) => {
           const item = $(event.target);
-          console.log(item);
           item.closest('.sides-container').slideUp("slow", () => {
           });
         });
+
+        $(".add-order").click(function (event) {
+          const formId = $(event.target).attr('form');
+          const values = {};
+
+          $.each($(`#${formId}`).serializeArray(), function (i, field) {
+            values[field.name] = field.value;
+          });
+
+          console.log(values);
+
+          for (const item in values) {
+            if (item === 'main') {
+              if (cart[values[item]]) {
+                cart[values[item]] += 1;
+              } else {
+                cart[values[item]] = 1;
+              }
+            } else if (cart[item]) {
+              cart[item] += 1;
+            } else {
+              cart[item] = 1;
+            }
+          }
+          console.log(cart);
+
+
+        })
       });
   };
   // calling loadTweets
