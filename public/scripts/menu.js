@@ -175,12 +175,12 @@ $(document).ready(() => {
           const formId = $(event.target).attr('form');
           const values = {};
 
+          //gets the values from the form and adds them to the values object
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
             values[field.name] = field.value;
           });
 
-          console.log(values);
-
+          //updates the cart object with the items in the values object
           for (const item in values) {
             if (item === 'main') {
               if (cart[values[item]]) {
@@ -194,12 +194,29 @@ $(document).ready(() => {
               cart[item] = 1;
             }
           }
-          console.log(cart);
 
+          // replaces cart items container with everything in the cart
+          // called each time an item is added to order
+          const updateCart = function () {
+            let markup = `<ul class="cart-items">`
+            for (const item in cart) {
+              markup += `
+              <li class="cart-item">
+                <div class="cart-item-quantity">${cart[item]}</div>
+                <h2 class="cart-item-title">${item}</h2>
+                <div class="cart-item-price">$9.95</div>
+              </li><!-- /.cart-item -->`;
+            }
+            markup += `</ul><!-- /.cart-items -->`
+            $('.cart-items').replaceWith(markup);
+          }
+
+          // calling updateCart
+          updateCart();
 
         })
       });
   };
-  // calling loadTweets
+  // calling loadMenu
   loadMenu();
 });
