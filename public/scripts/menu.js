@@ -15,10 +15,10 @@ $(document).ready(() => {
       <h2 class="menu-item-title">${item['title']}</h2>
       <p class="menu-item-description">${item['description']}</p>
     </div>
-      <span class="menu-item-price ">$${item['price'] / 100}</span>
+      <span class="menu-item-price ">$${(item['price'] / 100).toFixed(2)}</span>
     </div>
       <section class="sides-container" id="sides-container-${item['id']}">
-      <div class="menu-item" id="sides-item">
+      <div class="sides-item">
       <div class="sides-header">
       <span class="" style="font-size: 20px;font-weight: 500;color:white">EXTRAS</span>
       <br>
