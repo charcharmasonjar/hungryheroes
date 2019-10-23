@@ -37,7 +37,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="food-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="fries" id="fries">
+      <input type="checkbox" name="FRIES" id="fries">
       <label class="option" for='fries'><div class="sides-title">Fries</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -45,7 +45,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="soup" id="soup">
+      <input type="checkbox" name="SOUP" id="soup">
       <label class="option" for='soup'><div class="sides-title">Soup</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -53,7 +53,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="salad" id="salad">
+      <input type="checkbox" name="SALAD" id="salad">
       <label class="option" for='salad'><div class="sides-title">Salad</div>
       <div class="sides-price">$1.50</div>
       </label>
@@ -70,7 +70,7 @@ $(document).ready(() => {
       <ul class="list-checkboxes" id="drink-sides">
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="coke" id="coke">
+      <input type="checkbox" name="COKE" id="coke">
       <label class="option" for="coke"><div class="sides-title">Coke</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -78,7 +78,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="icetea" id="icetea">
+      <input type="checkbox" name="ICETEA" id="icetea">
       <label class="option" for='icetea'><div class="sides-title">Ice tea</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -86,7 +86,7 @@ $(document).ready(() => {
       </li>
       <li class="list-sides">
       <div class="checkbox">
-      <input type="checkbox" name="sprite" id="sprite">
+      <input type="checkbox" name="SPRITE" id="sprite">
       <label class="option" for='sprite'><div class="sides-title">Sprite</div>
       <div class="sides-price">$2.00</div>
       </label>
@@ -173,25 +173,38 @@ $(document).ready(() => {
 
         $(".add-order").click(function (event) {
           const formId = $(event.target).attr('form');
-          const formValues = {};
+
+          console.log(res);
 
           //gets the formValues from the form and adds them to the formValues object
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
+
             if (field.name === 'main') {
-              if(cart[field.value]) {
-                cart[field.value] +=1;
+              const menuItemRow = res.filter(menuItem => menuItem.title === field.value);
+              if (cart[field.value]) {
+                cart[field.value].amount += 1;
+                cart[field.value].price += menuItemRow[0].price / 100;
               } else {
-                cart[field.value] = 1
+                cart[field.value] = {
+                  amount: 1,
+                  price: menuItemRow[0].price / 100
+                };
               }
             } else {
-              if(cart[field.name]) {
-                cart[field.name] += 1
+              const menuItemRow = res.filter(menuItem => menuItem.title === field.name);
+              if (cart[field.name]) {
+                cart[field.name].amount += 1;
+                cart[field.name].price += menuItemRow[0] / 100;
               } else {
-                cart[field.name] = 1
+                cart[field.name] = {
+                  amount: 1,
+                  price: menuItemRow[0].price / 100
+                };
               }
             }
           });
 
+          // toLocaleString("en-US", {style: "currency", currency: "CAD"}
           console.log(cart);
 
           // replaces cart items container with everything in the cart
@@ -201,9 +214,9 @@ $(document).ready(() => {
             for (const item in cart) {
               markup += `
               <li class="cart-item">
-                <div class="cart-item-quantity">${cart[item]}</div>
+                <div class="cart-item-quantity">${cart[item].amount}</div>
                 <h2 class="cart-item-title">${item}</h2>
-                <div class="cart-item-price">$9.95</div>
+                <div class="cart-item-price">$${cart[item].price}</div>
               </li><!-- /.cart-item -->`;
             }
             markup += `</ul><!-- /.cart-items -->`
