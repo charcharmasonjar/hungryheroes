@@ -173,27 +173,26 @@ $(document).ready(() => {
 
         $(".add-order").click(function (event) {
           const formId = $(event.target).attr('form');
-          const values = {};
+          const formValues = {};
 
-          //gets the values from the form and adds them to the values object
+          //gets the formValues from the form and adds them to the formValues object
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
-            values[field.name] = field.value;
+            if (field.name === 'main') {
+              if(cart[field.value]) {
+                cart[field.value] +=1;
+              } else {
+                cart[field.value] = 1
+              }
+            } else {
+              if(cart[field.name]) {
+                cart[field.name] += 1
+              } else {
+                cart[field.name] = 1
+              }
+            }
           });
 
-          //updates the cart object with the items in the values object
-          for (const item in values) {
-            if (item === 'main') {
-              if (cart[values[item]]) {
-                cart[values[item]] += 1;
-              } else {
-                cart[values[item]] = 1;
-              }
-            } else if (cart[item]) {
-              cart[item] += 1;
-            } else {
-              cart[item] = 1;
-            }
-          }
+          console.log(cart);
 
           // replaces cart items container with everything in the cart
           // called each time an item is added to order
