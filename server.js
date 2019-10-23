@@ -10,7 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
-//const ngrok      = require('ngrok');
+const ngrok      = require('ngrok');
 
 // ------- Twilio config ------- //
 // const accountSid        = process.env.TWILIO_ACCOUNT_SID;
@@ -55,6 +55,7 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const specialRoutes = require("./routes/special");
 const cartRoutes = require("./routes/cart");
+const smsRoutes = require("./routes/sms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,6 +64,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/menu", menuRoutes(dbHelpers));
 app.use("/special", specialRoutes(dbHelpers));
 app.use("/cart", cartRoutes(dbHelpers));
+app.use("/sms", smsRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
 
