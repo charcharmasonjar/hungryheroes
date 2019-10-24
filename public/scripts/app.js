@@ -62,4 +62,9 @@ $(document).ready(function() {
       console.log('bad number');
     }
   })
+
+
+  $('.modal').click(() => {
+    $('.modal').hide();
+  })
 });
