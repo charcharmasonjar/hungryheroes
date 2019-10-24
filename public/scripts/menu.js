@@ -16,7 +16,7 @@ $(document).ready(() => {
         <h2 class="menu-item-title">${item['title']}</h2>
         <p class="menu-item-description">${item['description']}</p>
       </div>
-        <span class="menu-item-price ">$${item['price'] / 100}</span>
+        <span class="menu-item-price ">$${(item['price'] / 100).toFixed(2)}</span>
       </div>
         <section class="sides-container" id="sides-container-${item['id']}">
         <div class="menu-item" id="sides-item">
@@ -157,9 +157,9 @@ $(document).ready(() => {
           // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
           const item = $(event.delegateTarget.nextElementSibling);
           // ----- closes all other open sides-menus if opening a new side-menu ----- //
-          if(item.is(':hidden')){
+          if (item.is(':hidden')) {
             $('.menu-item').removeClass('menu-shadow');
-            $('.sides-container').slideUp('slow',() => {
+            $('.sides-container').slideUp('slow', () => {
             });
           }
           // ----- if open, closes the menu and gets ride of shadow, if closed opens the menu and adds the shadow ----- //
@@ -228,15 +228,22 @@ $(document).ready(() => {
               totalPrice += cart[item].price;
               markup += `
               <li class="cart-item">
+                <div class="cart-update">
+                <i class="fa fa-minus-square-o fa-lg cart-controls cart-minus" id="${item}"></i>
                 <div class="cart-item-quantity">${cart[item].amount}</div>
+                <i class="fa fa-plus-square-o fa-lg cart-controls cart-plus" id="${item}"></i>
+                </div>
+                <div class="cart-info">
                 <h2 class="cart-item-title">${item}</h2>
                 <div class="cart-item-price">$${(cart[item].price).toFixed(2)}</div>
+                </div>
               </li><!-- /.cart-item -->`;
             }
             markup += `</ul><!-- /.cart-items -->`
             $('.cart-items').replaceWith(markup);
             $('.cart-total-amount').html(`$${totalPrice.toFixed(2)}`);
           }
+
 
           // calling updateCart
           updateCart();
@@ -245,6 +252,27 @@ $(document).ready(() => {
           $('.hide-cart').slideDown("slow", () => {
           });
 
+          $(document).on("click", ".cart-minus", function () {
+            let foodItem = $(this).attr('id');
+            if (cart[foodItem].amount === 0 ) {
+              delete cart[foodItem];
+            }
+            let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
+            cart[foodItem].amount -= 1;
+            cart[foodItem].price -= pricePerItem;
+            if (cart[foodItem].amount === 0 ) {
+              delete cart[foodItem];
+            }
+            updateCart();
+          })
+
+          $(document).on("click", ".cart-plus", function () {
+            let foodItem = $(this).attr('id');
+            let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
+            cart[foodItem].amount += 1;
+            cart[foodItem].price += pricePerItem;
+            updateCart();
+          })
         })
       });
   };
