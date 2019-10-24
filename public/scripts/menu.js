@@ -153,12 +153,10 @@ $(document).ready(() => {
           const item = $(event.delegateTarget.nextElementSibling);
           // ----- closes all other open sides-menus if opening a new side-menu ----- //
           if (item.is(':hidden')) {
-            $('.menu-item').removeClass('menu-shadow');
             $('.sides-container').slideUp('slow', () => {
             });
           }
           // ----- if open, closes the menu and gets ride of shadow, if closed opens the menu and adds the shadow ----- //
-          item.closest('.menu-item').toggleClass('menu-shadow');
           item.slideToggle("slow", () => {
             $("input:checkbox").prop("checked", false);
           });
@@ -166,7 +164,6 @@ $(document).ready(() => {
         // ----- closes the sides-menu with the cancel button, reseting the checkboxes.----- //
         $(".menu-item-button-cancel").click((event) => {
           const item = $(event.target);
-          item.closest('.menu-item').removeClass('menu-shadow');
           item.closest('.sides-container').slideUp("slow", () => {
             $("input:checkbox").prop("checked", false);
           });
@@ -175,7 +172,6 @@ $(document).ready(() => {
         // ----- same as cancel button for menu closing purposes ----- //
         $(".add-order").click((event) => {
           const item = $(event.target);
-          item.closest('.menu-item').removeClass('menu-shadow');
           item.closest('.sides-container').slideUp("slow", () => {
             $("input:checkbox").prop("checked", false);
           });
