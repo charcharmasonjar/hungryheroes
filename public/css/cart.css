@@ -112,3 +112,21 @@
   z-index: 1000;
   display: none;
 }
+
+#comment-header {
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#comment-header button {
+  padding-bottom: 15px;
+  padding-right: 10px;
+}
+
+.comment-container textarea {
+  margin: 0px 10px 10px 10px;
+  width: 405px;
+}

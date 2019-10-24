@@ -151,7 +151,6 @@ $(document).ready(() => {
   const loadMenu = function () {
     $.ajax({ method: 'GET', url: '/menu' })
       .then((res) => {
-        console.log(res)
         renderMenuItems(res);
         $(".menu-item-container").click((event) => {
           // ----- the element where thre currently called jQuery event handler was attached to its next sibling ----- //
@@ -217,7 +216,6 @@ $(document).ready(() => {
               }
             }
           });
-          console.log(cart);
 
           // replaces cart items container with everything in the cart
           // called each time an item is added to order
