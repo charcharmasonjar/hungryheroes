@@ -16,16 +16,18 @@ module.exports = (dbHelpers) => {
 
 
   cartRoutes.post("/", (req, res) => {
-    const cartData = req.body;
-    console.log('cart',cartData);
+
+    //req.body is an object containing the cart object and the comment text
+    const cartData = req.body.cart;
+    const comments = req.body.comments;
 
     let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const food = {
-      user_id: 1,
+      user_id: req.session.userId,
       created_at: date,
       updated_at: date,
       completed_at: date,
-      comments: "Allergy to nuts"
+      comments: comments
     }
     dbHelpers.addFoodOrder(food)
       .then((order) => {

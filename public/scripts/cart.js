@@ -18,8 +18,14 @@ $(document).ready(function() {
 
   //posts order data to cart route checkout button is clicked
   $('#checkout').click(() => {
+
+    //postData: cart object and value of comment text area
+    const postData = {
+      cart: cart,
+      comments: $('textarea#comment').val()
+    }
     //if(!req.session.userID)
-    $.ajax({ method: 'POST', url: '/cart', data: cart })
+    $.ajax({ method: 'POST', url: '/cart', data: postData })
       .done(() => {
         console.log('wee');
       })
