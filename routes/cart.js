@@ -16,6 +16,10 @@ module.exports = (dbHelpers) => {
 
 
   cartRoutes.post("/", (req, res) => {
+    if(!req.session.userId) {
+      res.status(500);
+      res.send();
+    }else{
     const cartData = req.body;
     console.log('cart',cartData);
 
@@ -94,6 +98,7 @@ module.exports = (dbHelpers) => {
           .json({error:err.message});
       })
 
+    }
   });
 
   return cartRoutes;

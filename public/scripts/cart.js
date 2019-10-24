@@ -18,13 +18,13 @@ $(document).ready(function() {
 
   //posts order data to cart route checkout button is clicked
   $('#checkout').click(() => {
-    //if(!req.session.userID)
     $.ajax({ method: 'POST', url: '/cart', data: cart })
       .done(() => {
         console.log('wee');
       })
       .fail((error) => {
-        console.log(error.error);
+        console.log(error);
+        $('#fail-modal').toggleClass('show');
       })
  //for modal success/error then do stuff below in .then as well
   // $(".payment-container").slideToggle("slow", () => {
@@ -52,6 +52,10 @@ $('#add-comment').click(() => {
 $('#comment-header').click(() => {
   $('.comment-container').slideToggle("slow");
 });
+
+$('.modal').click((event) => {
+  $(event.target).toggleClass('show');
+})
 
 
 

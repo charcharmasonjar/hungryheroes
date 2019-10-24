@@ -10,6 +10,7 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows;
         req.session.userId = users[0].id;
+        console.log(req.session);
         res.json({ users });
       })
       .catch(err => {
@@ -23,6 +24,7 @@ module.exports = (db) => {
   router.get("/logout", (req, res) => {
     if (req.session.userId) {
       req.session.userId = null;
+      console.log(req.session);
       res.status(200);
     } else {
       res

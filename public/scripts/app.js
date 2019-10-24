@@ -63,8 +63,4 @@ $(document).ready(function() {
     }
   })
 
-
-  $('.modal').click(() => {
-    $('.modal').hide();
-  })
 });
