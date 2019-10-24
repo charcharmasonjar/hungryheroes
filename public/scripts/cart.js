@@ -17,3 +17,37 @@ $(document).ready(function () {
   })
 
 });
+
+const twilioOrder = {
+  name: $name,
+  phoneNumber: users.phone,
+  orderItems: finalOrderObj.quantity_of_items,
+  totalPrice: $totalPrice,
+  comments: $comments
+}
+
+if ($name && users.phone) {
+
+  $.ajax({
+    method: "POST",
+    url: "/api/users",
+    data: user
+  })
+    .done(function(id) {
+      finalOrderObj['user_id'] = id[0];
+      $.ajax({
+        method: "POST",
+        url: "/api/orders",
+        data: finalOrderObj
+      })
+        .done(function(orderId) {
+          twilioOrder['orderId'] = orderId[0];
+          $.ajax({
+            method: "POST",
+            url: "/sms",
+            data: twilioOrder
+          });
+        });
+    });
+
+}

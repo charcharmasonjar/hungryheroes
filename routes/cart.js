@@ -10,7 +10,7 @@ module.exports = (dbHelpers) => {
 
 
   cartRoutes.post("/", (req, res) => {
-    //
+    console.log("inside cart");
   });
   return cartRoutes;
 };

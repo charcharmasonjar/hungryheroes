@@ -10,14 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
-//const ngrok      = require('ngrok');
-
-// ------- Twilio config ------- //
-// const accountSid        = process.env.TWILIO_ACCOUNT_SID;
-// const authToken         = process.env.TWILIO_AUTH_TOKEN;
-// const client            = require('twilio')(accountSid, authToken);
-// const MessagingResponse = require('twilio').twiml.MessagingResponse;
-// const twilioNum         = +17784034065;
+const ngrok      = require('ngrok');
 
 
 
@@ -55,6 +48,7 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const specialRoutes = require("./routes/special");
 const cartRoutes = require("./routes/cart");
+const smsRoutes = require("./routes/sms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,6 +57,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/menu", menuRoutes(dbHelpers));
 app.use("/special", specialRoutes(dbHelpers));
 app.use("/cart", cartRoutes(dbHelpers));
+app.use("/sms", smsRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -71,7 +66,7 @@ app.use("/cart", cartRoutes(dbHelpers));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   let templateVars = {};
-  if(req.session.userId){
+  if (req.session.userId) {
     templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
   }
   res.render("index", templateVars);
