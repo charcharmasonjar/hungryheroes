@@ -16,7 +16,7 @@ module.exports = (dbHelpers) => {
 
   cartRoutes.post("/", (req, res) => {
     const cartData = req.body;
-    console.log(cartData);
+    console.log('cart',cartData);
 
     let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const food = {
@@ -27,15 +27,15 @@ module.exports = (dbHelpers) => {
       comments: "hi"
     }
     dbHelpers.addFoodOrder(food)
-      .then((res) => {
-        const foodOrderId = res.id;
+      .then((order) => {
+        const foodOrderId = order.id;
 
         const promises = Object.keys(cartData).map((menuItem) => {
           return dbHelpers.getMenuItemByTitle(menuItem)
-            .then((res) => {
+            .then((item) => {
               return dbHelpers.addOrderItem({
                 food_order_id: foodOrderId,
-                menu_item_id: res.id,
+                menu_item_id: item.id,
                 amount: cartData[menuItem].amount
               })
             })
@@ -44,20 +44,20 @@ module.exports = (dbHelpers) => {
         return Promise.all(promises);
 
       })
-      .then((res) => {
-        console.log(res[0]);
-        dbHelpers.getOrderInfo(res[0].food_order_id)
-          .then(res => {
-            console.log(res);
-            console.log(res[0].phone)
-            let phoneNum = res[0].phone;
-            let name = res[0].first_name;
+      .then((data) => {
+        console.log(data[0]);
+        dbHelpers.getOrderInfo(data[0].food_order_id)
+          .then(orderInfo => {
+            console.log(orderInfo);
+            console.log(orderInfo[0].phone)
+            let phoneNum = orderInfo[0].phone;
+            let name = orderInfo[0].first_name;
 
-            let orderNum = res[0].food_order_id;
-            let prep_time = res[0].prep_time; //always the 1st food item with longest prep time
-            let comments = res[0].comments;
+            let orderNum = orderInfo[0].food_order_id;
+            let prep_time = orderInfo[0].prep_time; //always the 1st food item with longest prep time
+            let comments = orderInfo[0].comments;
             let order = [];
-            for (const foodOrder of res) {
+            for (const foodOrder of orderInfo) {
               order.push(`\n ${foodOrder.title}: ${foodOrder.amount}\n`);
             }
             console.log(order);
@@ -71,7 +71,6 @@ module.exports = (dbHelpers) => {
             .catch(err => {
               console.log(err);
             })
-            .done();
 
             client.messages
             .create({
@@ -80,10 +79,18 @@ module.exports = (dbHelpers) => {
               body: `Your hungry heroes order has been recieved 😘 Estimated order time is ${prep_time} minutes`
             })
             .then((message) => console.log(message.sid))
-            .done();
 
           })
 
+      })
+      .then(() => {
+        res.status(200);
+        res.send();
+      })
+      .catch((err) =>{
+        res
+          .status(500)
+          .json({error:err.message});
       })
 
   });
