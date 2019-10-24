@@ -20,6 +20,7 @@ nav {
 nav #logo {
   font-family: 'Coda Caption', sans-serif;
   font-size: 32px;
+  display: none;
 }
 
 /* flexbox for button with text */
@@ -39,10 +40,11 @@ nav .stacked span {
   font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-size: 23px;
   font-weight: bold;
+  display: none;
 }
 
 #login {
-  display: block;
+  display: none;
   /* opacity: 1; */
 }
 

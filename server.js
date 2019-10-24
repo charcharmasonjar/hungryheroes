@@ -65,9 +65,9 @@ app.use("/sms", smsRoutes(dbHelpers));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  let templateVars = {};
+  let templateVars = {user: false};
   if (req.session.userId) {
-    templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
+    templateVars = {user: true}; //so far just checking whether a user exists
   }
   res.render("index", templateVars);
 });

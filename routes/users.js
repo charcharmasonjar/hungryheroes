@@ -18,6 +18,18 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+  router.get("/loggedin", (req, res) => {
+    db.query(`SELECT * FROM users WHERE id = $1;`,[req.session.userId])
+      .then(data => {
+        const users = data.rows;
+        res.json({ users });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
 /* ------- Logout Route ------- */
   router.get("/logout", (req, res) => {
