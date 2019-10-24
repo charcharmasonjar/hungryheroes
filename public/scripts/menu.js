@@ -21,18 +21,16 @@ $(document).ready(() => {
         <section class="sides-container" id="sides-container-${item['id']}">
         <div class="menu-item" id="sides-item">
         <div class="sides-header">
-        <span class="" style="font-size: 20px;font-weight: 500;color:white">EXTRAS</span>
+        <span style="font-size: 1.3rem">EXTRAS</span>
         <br>
-        <span class="" style="font-size: 12px;color: white">Would you like to add a side for your meal?</span>
+        <span>Would you like to add a side for your meal?</span>
         </div>
         <div class="sides-body">
         <div class="form-order">
         <form class="form-body" action="/cart" method="POST" id="item-${item['id']}">
         <input type="hidden" name="main" value="${item['title']}">
-        <div class="form-row" style="">
-        <label class="form-label">
-        <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a side</span>
-        </label>
+        <div class="form-row">
+        <label class="form-label">Add a side</label>
         <div class="form-controls">
         <ul class="list-checkboxes" id="food-sides">
         <li class="list-sides">
@@ -63,9 +61,7 @@ $(document).ready(() => {
         </div>
         </div>
         <div class="form-row">
-        <label class="form-label">
-        <span class="" style="color: rgba(14,18,25,1);font-size: 20px;">Add a drink</span>
-        </label>
+        <label class="form-label">Add a drink</label>
         <div class="form-controls">
         <ul class="list-checkboxes" id="drink-sides">
         <li class="list-sides">
