@@ -59,12 +59,8 @@ $(document).ready(function() {
         $('#phone-changer-input').attr('placeholder', input);
       });
     } else {
-      console.log('bad number');
+      console.log('bad number'); //needs more here
     }
   })
 
-
-  $('.modal').click(() => {
-    $('.modal').hide();
-  })
 });

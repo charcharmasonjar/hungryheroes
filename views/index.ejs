@@ -214,22 +214,23 @@
     </div>
 
     <!-- Success Modal-->
-    <!-- <div id="success-modal" class="modal">
-        <div class="closewindow" onclick="popFunction();"></div>
-        <img class="modal-content centered" id="img01" onclick="popFunction();" />
-        <a class="carousel-control-prev" id="ccp" onclick="previousImage();">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" id="ccn" onclick="nextImage();">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-        <div id="caption"></div>
-    </div> -->
-
-    <!-- Failure Modal-->
     <div id="success-modal" class="modal">
         <div class="modal-content centered" id="success-pop">
+
         </div>
+    </div>
+
+    <!-- Failure Modal-->
+    <div id="fail-modal-login" class="modal">
+      <div class="modal-content centered" id="fail-pop">
+        <h4 class="mb-3"><b>Oops. You forgot to log in.</b></h4>
+        <input type="text" class="form-control" placeholder="//email">
+        <input type="text" class="form-control" placeholder="//passord">
+        <div id='failure-buttons'>
+          <button class="btn btn-dark btn-block" type="button" id="modal-login">LOGIN</button>
+          <button class="btn btn-dark btn-block" type="button" id="modal-checkout">REGISTERING IS COOL TOO!</button>
+        </div>
+      </div>
     </div>
 
     <footer>

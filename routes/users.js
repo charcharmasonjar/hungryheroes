@@ -34,7 +34,6 @@ module.exports = (db) => {
 
   router.post("/updatePN", (req, res) => {
     if (req.session.userId) {
-      console.log(req.body.phone)
       db.query(`UPDATE users SET phone = $1 WHERE id = 1;`,[req.body.phone])
       .then(() => {
         res.status(200);
