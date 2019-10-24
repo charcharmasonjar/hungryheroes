@@ -17,5 +17,7 @@ $(document).ready(function () {
   })
 
   $('#checkout').click(() => {
-    $.ajax({ method: 'POST', url: '/cart', data: cart})})
+    $.ajax({ method: 'POST', url: '/cart', data: cart })
+  })
 });
+

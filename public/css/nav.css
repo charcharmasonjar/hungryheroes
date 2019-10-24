@@ -51,6 +51,33 @@ nav .stacked span {
   /* opacity: 0; */
 }
 
+#user-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00bcd4;
+  border-radius: 5px;;
+}
+
+#phone-changer {
+  display: flex;
+  flex-direction: column;
+  /* align-content: center; */
+  padding-top: 20px;
+  margin: 20px;
+  display: none;
+}
+
+#phone-changer button {
+  width: 100%;
+}
+
+#phone-changer-input {
+  margin-bottom: 10px;
+}
+
+
+
 /* toggle button, with animation */
 
 /* Tablet Styles */

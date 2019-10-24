@@ -50,7 +50,13 @@
   <nav>
     <div class="nav-content">
       <span id="logo">H&H</span>
-      <span id="user-name"></span>
+      <div id="user-area">
+        <span id="user-name"></span>
+        <div id="phone-changer">
+          <input class='form-control' type='tel' id='phone-changer-input' pattern='[0-9]{10}' maxlength='10' minlength='10' required>
+          <button class='btn btn-outline-light' type='submit'>Update Phone #</button>
+        </div>
+      </div>
       <div class="stacked">
         <span id="login"><b>Login</b></span>
         <span id="logout"><b>Logout</b></span>
