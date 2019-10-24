@@ -78,8 +78,12 @@ hr.light {
   width: 50vw;
   max-width: 400px;
   height: 50vh;
-  max-height: 400px;
-  background-color: whitesmoke;
+  max-height: 350px;
+  background-color: #00bcd4;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .modal {

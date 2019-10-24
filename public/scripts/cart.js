@@ -32,8 +32,10 @@ $(document).ready(function() {
         $("#success-modal").toggleClass('show');
       })
       .fail((error) => {
-        $('#fail-modal').toggleClass('show');
-      })
+        $('#fail-modal-login').toggleClass('show');
+        $(".payment-container").slideToggle("slow");
+
+        })
 });
 
 $('#payment-header').click(() => {
@@ -51,7 +53,7 @@ $('#comment-header').click(() => {
 });
 
 $('.modal').click((event) => {
-  $(event.target).toggleClass('show');
+  $(event.target).closest('.modal').toggleClass('show');
 })
 
 
