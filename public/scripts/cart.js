@@ -20,23 +20,20 @@ $(document).ready(function() {
   $('#checkout').click(() => {
     $.ajax({ method: 'POST', url: '/cart', data: cart })
       .done(() => {
-        console.log('wee');
+        $(".payment-container").slideToggle("slow", () => {
+          $('.pay-form').val('');
+        });
+        $('.hide-cart').slideToggle('slow', () =>{
+          $('.cart-items').replaceWith(`<ul class="cart-items">
+          </ul>`);
+          $('.cart-total-amount').html(`Your cart is empty`);
+          for (var item in cart) delete cart[item];
+        });
+        $("#success-modal").toggleClass('show');
       })
       .fail((error) => {
-        console.log(error);
         $('#fail-modal').toggleClass('show');
       })
- //for modal success/error then do stuff below in .then as well
-  // $(".payment-container").slideToggle("slow", () => {
-  //   $('.pay-form').val('');
-  // });
-  // $('.hide-cart').slideToggle('slow', () =>{
-  //   $('.cart-items').replaceWith(`<ul class="cart-items">
-  //   </ul>`);
-  //   $('.cart-total-amount').html(`Your cart is empty`);
-  //   for (var item in cart) delete cart[item];
-  //   console.log(cart);
-  // });
 });
 
 $('#payment-header').click(() => {

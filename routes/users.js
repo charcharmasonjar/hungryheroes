@@ -10,7 +10,6 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows;
         req.session.userId = users[0].id;
-        console.log(req.session);
         res.json({ users });
       })
       .catch(err => {
@@ -24,7 +23,6 @@ module.exports = (db) => {
   router.get("/logout", (req, res) => {
     if (req.session.userId) {
       req.session.userId = null;
-      console.log(req.session);
       res.status(200);
     } else {
       res
@@ -36,7 +34,6 @@ module.exports = (db) => {
 
   router.post("/updatePN", (req, res) => {
     if (req.session.userId) {
-      console.log(req.body.phone)
       db.query(`UPDATE users SET phone = $1 WHERE id = 1;`,[req.body.phone])
       .then(() => {
         res.status(200);
