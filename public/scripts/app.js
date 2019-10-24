@@ -33,6 +33,8 @@ $(document).ready(function() {
     $('#phone-changer').slideUp(200, () => {
 
       $('#user-name').fadeOut(200, () => {
+        $('#user-name').text(``);
+        $('#phone-changer-input').attr('placeholder', ``);
         $(this).hide('slow', () => {
           $('#login').show('slow');
         });
