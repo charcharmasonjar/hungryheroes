@@ -47,6 +47,7 @@ iframe {
   height: 140px;
   margin-bottom: 20px;
   box-shadow: 0 0 3px 0px black;
+  max-width: 100%;
 }
 
 footer {
