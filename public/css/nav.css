@@ -62,15 +62,21 @@ nav .stacked span {
 #phone-changer {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  /* align-content: center; */
   padding-top: 20px;
   margin: 20px;
   display: none;
 }
 
+#phone-changer button {
+  width: 100%;
+}
+
 #phone-changer-input {
   margin-bottom: 10px;
 }
+
+
 
 /* toggle button, with animation */
 

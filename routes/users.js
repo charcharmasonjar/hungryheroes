@@ -31,5 +31,28 @@ module.exports = (db) => {
     }
     res.send();
   });
+
+  router.post("/updatePN", (req, res) => {
+    if (req.session.userId) {
+      console.log(req.body.phone)
+      db.query(`UPDATE users SET phone = $1 WHERE id = 1;`,[req.body.phone])
+      .then(() => {
+        res.status(200);
+        res.send();
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+      res.status(200);
+    } else {
+      res
+        .status(304)
+        res.send();
+      }
+  });
+
+
   return router;
 };
