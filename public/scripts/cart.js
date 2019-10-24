@@ -16,6 +16,7 @@ $(document).ready(function () {
     });
   });
 
+  //posts order data to cart route checkout button is clicked
   $('#checkout').click(() => {
     $.ajax({ method: 'POST', url: '/cart', data: cart })
     // .then((res)=> {
@@ -31,7 +32,7 @@ $(document).ready(function () {
     //   for (var item in cart) delete cart[item];
     //   console.log(cart);
     // });
-  });
+  // });
 
   $('#payment-header').click(()=> {
     $(".payment-container").slideToggle("slow", () => {
