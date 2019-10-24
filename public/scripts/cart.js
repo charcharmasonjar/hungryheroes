@@ -16,8 +16,11 @@ $(document).ready(function () {
     });
   })
 
+  //posts order data to cart route checkout button is clicked
   $('#checkout').click(() => {
     $.ajax({ method: 'POST', url: '/cart', data: cart })
   })
+
+
 });
 
