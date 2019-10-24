@@ -85,7 +85,7 @@
   justify-content: center;
   background: #ffffff;
   box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
-  height: 80px;
+  height: 100px;
   width: 100%;
   padding: 10px;
   z-index: 1;
@@ -93,5 +93,22 @@
 
 /* total and payment button are hidden until user adds something to cart */
 .hide-cart {
+  display: none;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 40px;
+  bottom: 35px;
+  max-height: 80vh;
+  width: 425px;
+  margin: 10px;
+  overflow: hidden;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  z-index: 1000;
   display: none;
 }

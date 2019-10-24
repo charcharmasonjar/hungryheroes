@@ -16,3 +16,17 @@
   z-index: 1000;
 }
 
+#payment-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#payment-header button {
+  border: none;
+  outline: none;
+  padding-bottom: 13px;
+  padding-right: 5px;
+  padding-left: 13px;
+}

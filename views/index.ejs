@@ -158,6 +158,7 @@
           </div><!-- /.cart-body -->
 
           <div class="cart-footer">
+            <button type='button' class='btn btn-block btn-light' id='add-comment'>ADD COMMENTS</button>
             <button type="button" class="btn btn-dark btn-block" id="add-payment">ADD PAYMENT</button>
           </div>
         </div> <!-- /.hide-cart -->
@@ -167,32 +168,43 @@
 
     <div class="payment-container">
       <form action="">
-        <h4 class="mb-3">Payment</h4>
+        <div id='payment-header'>
+          <h4 class="mb-3">Payment</h4>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="row">
           <div class="col-12 mb-3">
             <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <input type="text" class="form-control pay-form" id="cc-name" placeholder="" required>
             <small class="text-muted">Full name as displayed on card</small>
           </div>
           <div class="col-12 mb-3">
             <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <input type="text" class="form-control pay-form" id="cc-number" placeholder="" required>
           </div>
         </div>
         <div class="row">
           <div class="col-6 mb-3">
             <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+            <input type="text" class="form-control pay-form" id="cc-expiration" placeholder="" required>
           </div>
           <div class="col-6 mb-3">
             <label for="cc-expiration">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+            <input type="text" class="form-control pay-form" id="cc-cvv" placeholder="" required>
           </div>
         </div>
         <hr class="mb-4">
         <button class="btn btn-dark btn-block" type="button" id="checkout">CHECKOUT</button>
       </form>
     </div> <!-- /.payment-container -->
+
+    <div class='comment-container'>
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+
    <footer>
      <div class="about-us">
         <span>-- Open bewteen the hours of 11 and 23 daily --</span>
