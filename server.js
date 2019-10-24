@@ -12,13 +12,6 @@ const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
 const ngrok      = require('ngrok');
 
-// ------- Twilio config ------- //
-// const accountSid        = process.env.TWILIO_ACCOUNT_SID;
-// const authToken         = process.env.TWILIO_AUTH_TOKEN;
-// const client            = require('twilio')(accountSid, authToken);
-// const MessagingResponse = require('twilio').twiml.MessagingResponse;
-// const twilioNum         = +17784034065;
-
 
 
 // PG database client/connection setup
@@ -73,7 +66,7 @@ app.use("/sms", smsRoutes(dbHelpers));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   let templateVars = {};
-  if(req.session.userId){
+  if (req.session.userId) {
     templateVars = { ...templateVars, user: true}; //so far just checking whether a user exists
   }
   res.render("index", templateVars);
