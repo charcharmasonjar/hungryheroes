@@ -9,8 +9,9 @@ const ngrok = require('ngrok');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhone = process.env.TWILIO_NUMBER;
+const restaurantPhone = process.env.RESTAURANT_NUMBER;
 const client = require('twilio')(accountSid, authToken);
-
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
 module.exports = (dbHelpers) => {
 
 
@@ -24,7 +25,7 @@ module.exports = (dbHelpers) => {
       created_at: date,
       updated_at: date,
       completed_at: date,
-      comments: "hi"
+      comments: "Allergy to nuts"
     }
     dbHelpers.addFoodOrder(food)
       .then((res) => {
@@ -49,7 +50,7 @@ module.exports = (dbHelpers) => {
         dbHelpers.getOrderInfo(res[0].food_order_id)
           .then(res => {
             console.log(res);
-            console.log(res[0].phone)
+            console.log(res[0].phone);
             let phoneNum = res[0].phone;
             let name = res[0].first_name;
 
@@ -62,32 +63,31 @@ module.exports = (dbHelpers) => {
             }
             console.log(order);
             client.messages
-            .create({
-              from: twilioPhone,
-              body: `New Order #${orderNum} from: ${name}, @${phoneNum}, order items: ${order}, special comments: ${comments}`,
-              to: '+17788674749'
-            })
-            .then(message => console.log(message.sid))
-            .catch(err => {
-              console.log(err);
-            })
-            .done();
+              .create({
+                from: twilioPhone,
+                body: `New Order #${orderNum} from: ${name}, @${phoneNum}, order items: ${order}, special comments: ${comments}`,
+                to: restaurantPhone
+              })
+              .then(message => console.log(message.sid))
+              .catch(err => {
+                console.log(err);
+              })
+              .done();
 
             client.messages
-            .create({
-              to: '+12508860164',
-              from: twilioPhone,
-              body: `Your hungry heroes order has been recieved 😘 Estimated order time is ${prep_time} minutes`
-            })
-            .then((message) => console.log(message.sid))
-            .done();
+              .create({
+                to: '+12508860164',
+                from: twilioPhone,
+                body: `Your hungry heroes order has been recieved 😘 Estimated order time is ${prep_time} minutes`
+              })
+              .then((message) => console.log(message.sid))
+              .done();
 
-          })
+          });
 
-      })
+      });
 
   });
-
 
   return cartRoutes;
 };

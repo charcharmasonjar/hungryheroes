@@ -9,5 +9,5 @@ CREATE TABLE food_orders (
   updated_at TIMESTAMP,
   completed_at TIMESTAMP,
   comments TEXT,
-  status BOOLEAN NOT NULL DEFAULT TRUE
+  status BOOLEAN NOT NULL DEFAULT FALSE
 );
