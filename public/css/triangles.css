@@ -1,0 +1,23 @@
+#triangle-1 {
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 18.99vw 95.4vw 15vw 0;
+border-color: transparent #00bcd4 transparent transparent;
+position: fixed;
+z-index:2000;
+top:0;
+right:0;
+}
+
+#triangle-2 {
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 19.05vw 95.4vw 0 0;
+border-color: #00bcd4 transparent transparent transparent;
+position: fixed;
+z-index: 2000;
+top:0;
+left: 3.9vw;
+}
