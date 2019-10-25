@@ -22,7 +22,7 @@ $(document).ready(function() {
     if ($('.cart-total-amount')[0].textContent === `Your cart is empty`) {
       $(".payment-container").slideToggle("slow", () => {
         $('.pay-form').val('');
-      $('.cart-total-amount')[0].style.color = 'red';
+        $('.cart-total-amount')[0].style.color = 'red';
       });
     } else {
       // ----- postData: cart object and value of comment text area ----- //
@@ -40,7 +40,7 @@ $(document).ready(function() {
             $('.cart-items').replaceWith(`<ul class="cart-items">
           </ul>`);
             $('.cart-total-amount').html(`Your cart is empty`);
-            for (var item in cart) delete cart[item];
+            for (let item in cart) delete cart[item];
           });
           $("#success-modal").toggleClass('show');
         })
@@ -48,7 +48,7 @@ $(document).ready(function() {
           $('#fail-modal-login').toggleClass('show');
           $(".payment-container").slideToggle("slow");
 
-      });
+        });
     }
   });
 

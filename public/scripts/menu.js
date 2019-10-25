@@ -142,6 +142,56 @@ $(document).ready(() => {
     }
   };
 
+  // ----- replaces cart items container with everything in the cart ----- //
+  // ----- called each time an item is added to order ----- //
+  $(document).on("click", ".cart-minus", function () {
+    let foodItem = $(this).attr('id');
+    if (cart[foodItem].amount === 0 ) {
+      delete cart[foodItem];
+    }
+    let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
+    cart[foodItem].amount--;
+    cart[foodItem].price -= pricePerItem;
+    if (cart[foodItem].amount === 0 ) {
+      delete cart[foodItem];
+    }
+    updateCart();
+  })
+
+  $(document).on("click", ".cart-plus", function () {
+    let foodItem = $(this).attr('id');
+
+    let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
+    // console.log(cart[foodItem].amount)
+    cart[foodItem].amount++;
+    cart[foodItem].price += pricePerItem;
+    updateCart();
+  });
+
+  const updateCart = function () {
+    let totalPrice = 0;
+    let markup = `<ul class="cart-items">`;
+    for (const item in cart) {
+      totalPrice += cart[item].price;
+      console.log(cart[item].amount)
+      markup += `
+      <li class="cart-item">
+        <div class="cart-update">
+        <i class="fa fa-minus-square-o fa-lg cart-controls cart-minus" id="${item}"></i>
+        <div class="cart-item-quantity">${cart[item].amount}</div>
+        <i class="fa fa-plus-square-o fa-lg cart-controls cart-plus" id="${item}"></i>
+        </div>
+        <div class="cart-info">
+        <h2 class="cart-item-title">${item}</h2>
+        <div class="cart-item-price">$${(cart[item].price).toFixed(2)}</div>
+        </div>
+      </li><!-- /.cart-item -->`;
+    }
+    markup += `</ul><!-- /.cart-items -->`
+    $('.cart-items').replaceWith(markup);
+    $('.cart-total-amount')[0].style.color = 'black';
+    $('.cart-total-amount').html(`$${totalPrice.toFixed(2)}`);
+  };
 
   // ----- loads the rendered markup menu ----- //
   const loadMenu = function () {
@@ -211,31 +261,7 @@ $(document).ready(() => {
             }
           });
 
-          // ----- replaces cart items container with everything in the cart ----- //
-          // ----- called each time an item is added to order ----- //
-          const updateCart = function () {
-            let totalPrice = 0;
-            let markup = `<ul class="cart-items">`;
-            for (const item in cart) {
-              totalPrice += cart[item].price;
-              markup += `
-              <li class="cart-item">
-                <div class="cart-update">
-                <i class="fa fa-minus-square-o fa-lg cart-controls cart-minus" id="${item}"></i>
-                <div class="cart-item-quantity">${cart[item].amount}</div>
-                <i class="fa fa-plus-square-o fa-lg cart-controls cart-plus" id="${item}"></i>
-                </div>
-                <div class="cart-info">
-                <h2 class="cart-item-title">${item}</h2>
-                <div class="cart-item-price">$${(cart[item].price).toFixed(2)}</div>
-                </div>
-              </li><!-- /.cart-item -->`;
-            }
-            markup += `</ul><!-- /.cart-items -->`
-            $('.cart-items').replaceWith(markup);
-            $('.cart-total-amount')[0].style.color = 'black';
-            $('.cart-total-amount').html(`$${totalPrice.toFixed(2)}`);
-          }
+
 
 
           // ----- calling updateCart ----- //
@@ -244,29 +270,7 @@ $(document).ready(() => {
           // ----- slides payment button and cart total into view ----- //
           $('.hide-cart').slideDown("slow", () => {
           });
-
-          $(document).on("click", ".cart-minus", function () {
-            let foodItem = $(this).attr('id');
-            if (cart[foodItem].amount === 0 ) {
-              delete cart[foodItem];
-            }
-            let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
-            cart[foodItem].amount -= 1;
-            cart[foodItem].price -= pricePerItem;
-            if (cart[foodItem].amount === 0 ) {
-              delete cart[foodItem];
-            }
-            updateCart();
-          })
-
-          $(document).on("click", ".cart-plus", function () {
-            let foodItem = $(this).attr('id');
-            let pricePerItem = cart[foodItem].price / cart[foodItem].amount;
-            cart[foodItem].amount += 1;
-            cart[foodItem].price += pricePerItem;
-            updateCart();
-          })
-        })
+        });
       });
   };
   // ----- calling loadTweets ----- //
