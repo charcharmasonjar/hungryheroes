@@ -79,9 +79,16 @@ $(document).ready(() => {
     <div class="title">HUNGRY HEROES</div>
   </div>
     `;
+    const markup4 = `
+    <div class="mySlides fade">
+    <img src=${'https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/stock-4.JPG?raw=true'} style="width:100%">
+    <div class="title">HUNGRY HEROES</div>
+  </div>
+    `;
     specialContainer.append(markup1);
     specialContainer.append(markup2);
     specialContainer.append(markup3);
+    specialContainer.append(markup4);
   };
 
   // ----- loads specials from the menu_items and then sets the first item to be visible ----- //
