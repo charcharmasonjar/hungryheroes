@@ -39,7 +39,6 @@ module.exports = (dbHelpers) => {
       dbHelpers.addFoodOrder(food)
         .then((order) => {
           const foodOrderId = order.id;
-
           const promises = Object.keys(cartData).map((menuItem) => {
             return dbHelpers.getMenuItemByTitle(menuItem)
               .then((item) => {
