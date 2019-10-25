@@ -30,7 +30,7 @@ $(document).ready(() => {
         <form class="form-body" action="/cart" method="POST" id="item-${item['id']}">
         <input type="hidden" name="main" value="${item['title']}">
         <div class="form-row">
-        <label class="form-label">Add a side</label>
+        <label class="form-label">ADD A SIDE</label>
         <div class="form-controls">
         <ul class="list-checkboxes" id="food-sides">
         <li class="list-sides">
@@ -61,7 +61,7 @@ $(document).ready(() => {
         </div>
         </div>
         <div class="form-row">
-        <label class="form-label">Add a drink</label>
+        <label class="form-label">ADD A DRINK</label>
         <div class="form-controls">
         <ul class="list-checkboxes" id="drink-sides">
         <li class="list-sides">
@@ -98,7 +98,7 @@ $(document).ready(() => {
         <div class="form-actions">
         <button type="button" form="item-${item['id']}" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
         </div>
-        <button class="btn btn-default menu-item-button-cancel">CANCEL</button>
+        <button class="btn btn-block btn-light menu-item-button-cancel">CANCEL</button>
         </div>
         </div>
         </section>
