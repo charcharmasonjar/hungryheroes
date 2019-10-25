@@ -72,6 +72,10 @@ $(document).ready(function() {
     }
   })
 
+  $('#modal-login').click((event) => {
+    $(event.target).closest('.modal').toggleClass('show');
+  })
+
 
 
 });
