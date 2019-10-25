@@ -1,26 +1,27 @@
 #triangle-1 {
-width: 0;
-height: 0;
-border-style: solid;
-border-width: 20vw 120vw 20vw 0;
-border-color: transparent #00bcd4 transparent transparent;
-position: fixed;
-z-index:2000;
-top: 8.9vw;
-left: -58.3vw;
-transform: rotate(205deg);
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20vw 120vw 20vw 0;
+  border-color: transparent red transparent transparent;
+  position: fixed;
+  z-index:2002;
+  top: 8.9vw;
+  left: -58.3vw;
+  transform: rotate(205deg);
 }
 
 #triangle-2 {
-width: 0;
-height: 0;
-border-style: solid;
-border-width: 18.7vw 95.4vw 0 0;
-border-color: #00bcd4 transparent transparent transparent;
-position: fixed;
-z-index: 2000;
-top:0;
-left: 4.2vw;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 18.7vw 95.4vw 0 0;
+  border-color: #00bcd4 transparent transparent transparent;
+  position: fixed;
+  z-index: 2000;
+  top:0;
+  left: 4.2vw;
 }
 
 #triangle-3 {
@@ -82,4 +83,133 @@ left: 4.2vw;
   font-family: 'Coda Caption', sans-serif;
   color: white;
 
+}
+
+
+.fade-triangle {
+  -webkit-animation-name: fade-triangle;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: fade-triangle;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-triangle {
+  0% { opacity: 1; }
+  100% {opacity: 0;}
+  /* 100% { display: none; } */
+}
+
+@keyframes fade-triangle {
+  0% { opacity: 1; }
+  100% {opacity: 0;}
+  /* 100% { display: none; } */
+}
+
+.slide-triangle-1 {
+  -webkit-animation-name: slide-triangle-1;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slide-triangle-1;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-triangle-1 {
+  0% { transform: rotate(205deg) translate(0vw, 0vw); }
+  100% {transform: rotate(205deg) translate(70vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+@keyframes slide-triangle-1 {
+  0% { transform: rotate(205deg) translate(0vw, 0vw) }
+  100% {transform:  rotate(205deg) translate(65vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+
+.slide-triangle-24 {
+  -webkit-animation-name: slide-triangle-24;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slide-triangle-24;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-triangle-24 {
+  0% { transform: translate(0vw, 0vw); }
+  100% {transform: translate(0vw, -30vw);}
+  /* 100% { display: none; } */
+}
+
+@keyframes slide-triangle-24 {
+  0% { transform: translate(0vw, 0vw) }
+  100% {transform: translate(0vw, -30vw);}
+  /* 100% { display: none; } */
+}
+
+.slide-triangle-3 {
+  -webkit-animation-name: slide-triangle-3;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slide-triangle-3;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-triangle-3 {
+  0% { transform: translate(0vw, 0vw); }
+  100% {transform: translate(98vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+@keyframes slide-triangle-3 {
+  0% { transform: translate(0vw, 0vw) }
+  100% {transform: translate(98vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+
+.slide-triangle-5 {
+  -webkit-animation-name: slide-triangle-5;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slide-triangle-5;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-triangle-5 {
+  0% { transform: rotate(20.5deg) translate(0vw, 0vw); }
+  100% {transform: rotate(20.5deg) translate(110vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+@keyframes slide-triangle-5 {
+  0% { transform: rotate(20.5deg) translate(0vw, 0vw) }
+  100% {transform:  rotate(20.5deg) translate(110vw, 0vw);}
+  /* 100% { display: none; } */
+}
+
+.slide-triangle-6 {
+  -webkit-animation-name: slide-triangle-6;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slide-triangle-6;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-triangle-6 {
+  0% { transform: translate(0vw, 0vw); }
+  100% {transform: translate(-30vw, 30vw);}
+  /* 100% { display: none; } */
+}
+
+@keyframes slide-triangle-6 {
+  0% { transform: translate(0vw, 0vw) }
+  100% {transform: translate(-30vw, 30vw);}
+  /* 100% { display: none; } */
 }
