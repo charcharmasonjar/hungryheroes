@@ -98,7 +98,7 @@ $(document).ready(() => {
         <div class="form-actions">
         <button type="button" form="item-${item['id']}" value="Submit" class="btn btn-dark btn-block add-order">ADD TO ORDER</button>
         </div>
-        <button class="btn btn-block btn-light menu-item-button-cancel">CANCEL</button>
+        <button class="btn btn-block btn-danger menu-item-button-cancel">CANCEL</button>
         </div>
         </div>
         </section>
@@ -182,7 +182,7 @@ $(document).ready(() => {
 
         $(".add-order").click(function (event) {
           const formId = $(event.target).attr('form');
-          
+
           // ----- gets the values from the form and adds them to the cart object ----- //
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
 

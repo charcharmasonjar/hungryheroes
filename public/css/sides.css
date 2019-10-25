@@ -28,7 +28,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 20px;
 }
 
 
@@ -129,4 +128,6 @@ input[type="checkbox"] {
   width: 100%;
 }
 
-
+.menu-item-button-cancel {
+  margin-top: 5px;
+}
