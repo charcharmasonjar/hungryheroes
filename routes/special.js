@@ -1,8 +1,8 @@
-//routes for specials/slideshow
+// ~~~~~ routes for specials/slideshow ~~~~~ //
 const express = require('express');
 const router = express.Router();
 
-//gets all specials for the slideshow
+// ----- gets all specials for the slideshow ----- //
 module.exports = (dbHelpers) => {
   router.get("/", (req, res) => {
     dbHelpers.getAllSpecials()

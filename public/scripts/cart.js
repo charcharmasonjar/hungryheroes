@@ -2,24 +2,24 @@ const cart = {};
 
 $(document).ready(function() {
 
-  //cart-body when cart header is clicked
+  // ----- cart-body when cart header is clicked ----- //
   $(".cart-header").click(() => {
     $(".hide-cart").slideToggle("slow", () => {
       //done
     });
   });
 
-  //toggles write payment form when add payment button is clicked
+  // ----- toggles write payment form when add payment button is clicked ----- //
   $("#add-payment").click(() => {
     $(".payment-container").slideToggle("slow", () => {
       //done
     });
   });
 
-  //posts order data to cart route checkout button is clicked
+  // ----- posts order data to cart route checkout button is clicked ----- //
   $('#checkout').click(() => {
 
-    //postData: cart object and value of comment text area
+    // ----- postData: cart object and value of comment text area ----- //
     const postData = {
       cart: cart,
       comments: $('textarea#comment').val()
@@ -41,22 +41,22 @@ $(document).ready(function() {
         $('#fail-modal-login').toggleClass('show');
         $(".payment-container").slideToggle("slow");
 
-        })
-});
-
-$('#payment-header').click(() => {
-  $(".payment-container").slideToggle("slow", () => {
-    //done
+      });
   });
-});
 
-$('#add-comment').click(() => {
-  $('.comment-container').slideToggle("slow");
-});
+  $('#payment-header').click(() => {
+    $(".payment-container").slideToggle("slow", () => {
+      //done
+    });
+  });
 
-$('#comment-header').click(() => {
-  $('.comment-container').slideToggle("slow");
-});
+  $('#add-comment').click(() => {
+    $('.comment-container').slideToggle("slow");
+  });
+
+  $('#comment-header').click(() => {
+    $('.comment-container').slideToggle("slow");
+  });
 
 $('.modal').click((event) => {
   $(event.target).closest('.modal').toggleClass('show');

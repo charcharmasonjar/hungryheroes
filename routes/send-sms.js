@@ -1,13 +1,12 @@
-
 const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const router = express.Router();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhone = process.env.TWILIO_NUMBER;
-// const restaurantPhone = process.env.RESTAURANT_NUMBER;
 const client = require('twilio')(accountSid, authToken);
 
+// ~~~~~~~~ route for twilio messaging response ~~~~~~~~ //
 
 module.exports = (dbHelpers) => {
 
@@ -62,9 +61,6 @@ module.exports = (dbHelpers) => {
     res.writeHead(200, {'Content-type': 'text/xml'});
     res.end(twiml.toString());
   });
-
-
   return router;
-
 };
 

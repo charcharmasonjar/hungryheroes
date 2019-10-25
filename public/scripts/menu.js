@@ -1,9 +1,9 @@
-//A client side script to deal with menu things
+// ~~~~~ A client side script to deal with menu things ~~~~~ //
 $(document).ready(() => {
 
-  //populates an html element with data from a menu item in the db
+  // ----- populates an html element with data from a menu item in the db ----- //
   const createMenuItemElement = function (item) {
-    //current markup for a menu item in html
+    // ----- current markup for a menu item in html ----- //
     const markup = `
     <li class="menu-item">
     <div class="menu-item-container">
@@ -106,9 +106,9 @@ $(document).ready(() => {
       `;
     return markup;
   };
-  //creates menu item html elements and attaches them to the correct list in the view
+  // ----- creates menu item html elements and attaches them to the correct list in the view ----- //
   const renderMenuItems = function (items) {
-    //each course list has a container id
+    // ----- each course list has a container id ----- //
     const ul_1 = $('#for-the-table-container');
     const ul_2 = $('#greens-container');
     const ul_3 = $('#bowls-container');
@@ -120,7 +120,7 @@ $(document).ready(() => {
     const ul_9 = $('#desserts-container');
     for (const item of items) {
       let li = createMenuItemElement(item);
-      if (item['course_id'] === 1) { //for the table
+      if (item['course_id'] === 1) { // ----- for the table
         ul_1.append(li);
       } else if (item['course_id'] === 2) { //greens
         ul_2.append(li);
@@ -143,7 +143,7 @@ $(document).ready(() => {
   };
 
 
-
+  // ----- loads the rendered markup menu ----- //
   const loadMenu = function () {
     $.ajax({ method: 'GET', url: '/menu' })
       .then((res) => {
@@ -156,12 +156,14 @@ $(document).ready(() => {
             $('.sides-container').slideUp('slow', () => {
             });
           }
+
           // ----- if open, closes the menu and gets ride of shadow, if closed opens the menu and adds the shadow ----- //
           item.slideToggle("slow", () => {
             $("input:checkbox").prop("checked", false);
           });
         });
-        // ----- closes the sides-menu with the cancel button, reseting the checkboxes.----- //
+
+        // ----- closes the sides-menu with the cancel button, reseting the checkboxes ----- //
         $(".menu-item-button-cancel").click((event) => {
           const item = $(event.target);
           item.closest('.sides-container').slideUp("slow", () => {
@@ -169,6 +171,7 @@ $(document).ready(() => {
           });
 
         });
+
         // ----- same as cancel button for menu closing purposes ----- //
         $(".add-order").click((event) => {
           const item = $(event.target);
@@ -178,10 +181,9 @@ $(document).ready(() => {
         });
 
         $(".add-order").click(function (event) {
-
           const formId = $(event.target).attr('form');
-
-          //gets the values from the form and adds them to the cart object
+          
+          // ----- gets the values from the form and adds them to the cart object ----- //
           $.each($(`#${formId}`).serializeArray(), function (i, field) {
 
             if (field.name === 'main') {
@@ -209,11 +211,11 @@ $(document).ready(() => {
             }
           });
 
-          // replaces cart items container with everything in the cart
-          // called each time an item is added to order
+          // ----- replaces cart items container with everything in the cart ----- //
+          // ----- called each time an item is added to order ----- //
           const updateCart = function () {
             let totalPrice = 0;
-            let markup = `<ul class="cart-items">`
+            let markup = `<ul class="cart-items">`;
             for (const item in cart) {
               totalPrice += cart[item].price;
               markup += `
@@ -235,10 +237,10 @@ $(document).ready(() => {
           }
 
 
-          // calling updateCart
+          // ----- calling updateCart ----- //
           updateCart();
 
-          //slides payment button and cart total into view
+          // ----- slides payment button and cart total into view ----- //
           $('.hide-cart').slideDown("slow", () => {
           });
 
