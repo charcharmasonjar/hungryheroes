@@ -48,8 +48,8 @@ $(document).ready(function() {
     triangle1.addClass('slide-triangle-1');
     setTimeout(()=> {
       triangle1[0].style.display = 'none';
-    }, 2000, triangle1);
-  }, 1000, triangle1);
+    },2000, triangle1);
+  }, 2000, triangle1);
 
   const triangle2 = $('#triangle-2');
   const triangle4 = $('#triangle-4')
@@ -60,7 +60,7 @@ $(document).ready(function() {
       triangle2[0].style.display = 'none';
       triangle4[0].style.display = 'none';
     }, 2000, triangle2, triangle4);
-  }, 1000, triangle2, triangle4);
+  }, 2000, triangle2, triangle4);
 
   const triangle5 = $('#triangle-5');
   setTimeout(()=> {
@@ -68,7 +68,7 @@ $(document).ready(function() {
     setTimeout(()=> {
       triangle5[0].style.display = 'none';
     }, 2000, triangle5);
-  }, 1000, triangle5);
+  }, 2000, triangle5);
 
   const triangle6 = $('#triangle-6');
   setTimeout(()=> {
@@ -76,7 +76,7 @@ $(document).ready(function() {
     setTimeout(()=> {
       triangle6[0].style.display = 'none';
     }, 2000, triangle6);
-  }, 1000, triangle6);
+  }, 2000, triangle6);
 
   const triangle3 = $('#triangle-3');
   const logo = $('#initial-logo');
@@ -87,6 +87,6 @@ $(document).ready(function() {
       triangle3[0].style.display = 'none';
       logo[0].style.display = 'none';
     }, 2000, triangle3, logo);
-  }, 1000, triangle3, logo);
+  }, 2000, triangle3, logo);
 
 });
