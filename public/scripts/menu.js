@@ -233,6 +233,7 @@ $(document).ready(() => {
             }
             markup += `</ul><!-- /.cart-items -->`
             $('.cart-items').replaceWith(markup);
+            $('.cart-total-amount')[0].style.color = 'black';
             $('.cart-total-amount').html(`$${totalPrice.toFixed(2)}`);
           }
 

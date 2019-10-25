@@ -65,7 +65,7 @@ hr.light {
   margin-bottom: 1rem;
 }
 
-
+/* ====== Modal CSS ====== */
 
 .centered {
   position: fixed;
@@ -80,16 +80,40 @@ hr.light {
   height: 50vh;
   max-height: 350px;
   background-color: #00bcd4;
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.form-control+.form-control {
+  margin-top: .5rem;
 }
 
 .modal {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
+}
+
+#failure-buttons {
+  margin-top: 10px
+}
+
+#success-pop {
+  max-height: 230px;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#success-text {
+  color: white;
+  font-family: 'Changa One', sans-serif;
+  font-size: 64px;
 }
 
 .show {
