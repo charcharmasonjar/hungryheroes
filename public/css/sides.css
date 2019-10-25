@@ -1,14 +1,8 @@
-
-
-
 .sides-container {
   display: none;
   flex-direction: column;
-  position: relative;
   width: 100%;
-  right: 40px;
-  max-height: 50vh;
-  margin: 0px 40px;
+  max-height: 400px;
   overflow: hidden;
   z-index: 1;
 }
@@ -22,11 +16,12 @@
 
 .sides-header {
   width: 100%;
-  min-height: 40px;
+  height: 80px;
   padding: 15px;
-  background: #00bcd4;
+  background-color: #00bcd4;
   z-index: 2;
   color: white;
+
 }
 
 .sides-body {
@@ -39,12 +34,15 @@
 
 .form-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
+  padding: 10px 70px 10px 70px;
 }
 
 .form-label {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 div.form-order {
@@ -57,21 +55,21 @@ div.form-order {
 .form-row {
   display:flex;
   flex-direction: column;
+  width: 100%;
+  padding: 0px 30px;
 }
 
 .form-controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  padding: 12px 12px 12px 30px;
   border-top: 1px solid lightgray;
+  padding: 10px;
 }
 
 .list-checkboxes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -80,18 +78,19 @@ div.form-order {
 .option {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  font-weight: 400;
+  width: 80%;
+  font-size: 1rem;
   margin-bottom: 0px;
 }
 
 .sides-title {
   padding: 0px 7px;
+
 }
 .sides-price {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 200px;
 }
 
@@ -104,21 +103,30 @@ input[type="checkbox"] {
 
 .sides-footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  height: 60px;
+  height: 100px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 70px 10px 70px;
   z-index: 2;
-  box-shadow: 0 0 8px 0px rgba(34,34,34,0.55);
+  box-shadow: 0 0 3px 0px rgba(34,34,34,0.55);
 }
 
-.menu-item-button-cancel {
-  background-color: darkgray;
+.form-actions {
+  width: 100%;
 }
+
 
 .checkbox {
   display: flex;
+  display: flex;
+  flex-direction: row;
 }
+
+.list-sides {
+  width: 100%;
+}
+
+
