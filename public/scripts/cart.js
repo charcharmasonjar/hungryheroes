@@ -67,7 +67,9 @@ $(document).ready(function() {
   });
 
   $('.modal').click((event) => {
-    $(event.target).closest('.modal').toggleClass('show');
+    if(event.target === event.target.closest('.modal')){
+      $(event.target).closest('.modal').toggleClass('show');
+    }
   })
 
 
