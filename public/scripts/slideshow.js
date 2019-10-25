@@ -63,19 +63,19 @@ $(document).ready(() => {
     const specialContainer = $('.slideshow-container');
     const markup1 = `
     <div class="mySlides fade">
-    <img src=${'/home/jake/lighthouse/midterm/hungryheroes/docs/stock-1.JPG'} style="width:100%">
+    <img src=${'https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/stock-1.JPG?raw=true'} style="width:100%">
     <div class="title">HUNGRY HEROES</div>
   </div>
     `;
     const markup2 = `
     <div class="mySlides fade">
-    <img src=${'https://photos.google.com/share/AF1QipP5v-DGnBOS5nfwBVxI4DO75JzU17ME7NJhWqkNM8fX51VNI8e-US7Ck6z5BUadAg/photo/AF1QipPAksdLPJ7pNHh3SAmqYFxTOhsVGl_LVTqjLTvA?key=dkl0TzU5TGQ1aEkwdldTRDA2cFJzdEpzZHRrQnBB'} style="width:100%">
+    <img src=${'https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/stock-2.JPG?raw=true'} style="width:100%">
     <div class="title">HUNGRY HEROES</div>
   </div>
     `;
     const markup3 = `
     <div class="mySlides fade">
-    <img src=${'https://photos.google.com/share/AF1QipP5v-DGnBOS5nfwBVxI4DO75JzU17ME7NJhWqkNM8fX51VNI8e-US7Ck6z5BUadAg/photo/AF1QipMqiLNWFE8zKq_wmEWdpG5mYaOXAFBBm3dWHb9J?key=dkl0TzU5TGQ1aEkwdldTRDA2cFJzdEpzZHRrQnBB'} style="width:100%">
+    <img src=${'https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/stock-3.jpg?raw=true'} style="width:100%">
     <div class="title">HUNGRY HEROES</div>
   </div>
     `;
