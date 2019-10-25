@@ -1,8 +1,8 @@
-//routes for menu_items
+// ~~~~~ routes for menu_items ~~~~~ //
 const express = require('express');
 const router = express.Router();
 
-//gets all menu items for the menu
+// ----- gets all menu items for the menu ----- //
 module.exports = (dbHelpers) => {
   router.get("/", (req, res) => {
     dbHelpers.getAllMenuItems()

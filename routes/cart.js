@@ -11,12 +11,14 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhone = process.env.TWILIO_NUMBER;
 const restaurantPhone = process.env.RESTAURANT_NUMBER;
 const client = require('twilio')(accountSid, authToken);
+
+
 module.exports = (dbHelpers) => {
 
 
   cartRoutes.post("/", (req, res) => {
 
-    //req.body is an object containing the cart object and the comment text
+    // ----- req.body is an object containing the cart object and the comment text ----- //
     const cartData = req.body.cart;
     const comments = req.body.comments;
 
@@ -28,6 +30,8 @@ module.exports = (dbHelpers) => {
       completed_at: date,
       comments: comments
     }
+
+    // ----- adds the submitted food order/ order_item into the database ----- //
     dbHelpers.addFoodOrder(food)
       .then((order) => {
         const foodOrderId = order.id;
@@ -47,25 +51,23 @@ module.exports = (dbHelpers) => {
 
       })
       .then((data) => {
-        console.log(data[0]);
         dbHelpers.getOrderInfo(data[0].food_order_id)
           .then(orderInfo => {
-            console.log(orderInfo);
-            console.log(orderInfo[0].phone);
+
             let phoneNum = orderInfo[0].phone;
             let name = orderInfo[0].first_name;
-
             let orderNum = orderInfo[0].food_order_id;
             let comments = orderInfo[0].comments;
             let order = [];
+
             for (const foodOrder of orderInfo) {
               order.push(`\n ${foodOrder.title}: ${foodOrder.amount}\n`);
             }
-            console.log(order);
+            // ----- sends sms to restaurant with cart order ----- //
             client.messages
               .create({
                 from: twilioPhone,
-                body: `New Order #${orderNum} from: ${name}, @${phoneNum}, order items: ${order}, special comments: ${comments}`,
+                body: `\nNew Order #${orderNum} from: ${name}, @${phoneNum}, order items: ${order},\n special comments: ${comments}`,
                 to: restaurantPhone
               })
               .then(message => console.log(message.sid))

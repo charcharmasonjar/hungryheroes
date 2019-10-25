@@ -44,7 +44,7 @@ $(document).ready(function() {
     $('#phone-changer').slideToggle('slow');
   })
 
-
+  /* ------- Change User Phone Number -------- */
   $('#phone-changer button').click(function() {
     const input = $('#phone-changer-input').val();
     $('#phone-changer').slideUp('slow', ()=>{
