@@ -228,9 +228,12 @@
     <!-- Failure Modal-->
     <div id="fail-modal-login" class="modal">
       <div class="modal-content centered" id="fail-pop">
+
         <h4 class="mb-3"><b>Oops. You forgot to log in.</b></h4>
-        <input type="text" class="form-control" placeholder="//email">
-        <input type="text" class="form-control" placeholder="//passord">
+        <div id='modal-inputs'>
+          <input type="text" class="form-control" placeholder="//email">
+          <input type="text" class="form-control" placeholder="//password">
+        </div>
         <div id='failure-buttons'>
           <button class="btn btn-dark btn-block" type="button" id="modal-login">LOGIN</button>
           <button class="btn btn-dark btn-block" type="button" id="modal-checkout">REGISTERING IS COOL TOO!</button>
