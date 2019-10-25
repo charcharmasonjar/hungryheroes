@@ -54,7 +54,42 @@ $(document).ready(() => {
   };
 
   // ----- calling loadSpecials ----- //
-  loadSpecials();
+  //loadSpecials();
 
 
+
+  // ----- creates menu items specials for the slideshow and places them in the slideshow container ----- //
+  const renderStockPhotos = function() {
+    const specialContainer = $('.slideshow-container');
+    const markup1 = `
+    <div class="mySlides fade">
+    <img src=${'/home/jake/lighthouse/midterm/hungryheroes/docs/stock-1.JPG'} style="width:100%">
+    <div class="title">HUNGRY HEROES</div>
+  </div>
+    `;
+    const markup2 = `
+    <div class="mySlides fade">
+    <img src=${'https://photos.google.com/share/AF1QipP5v-DGnBOS5nfwBVxI4DO75JzU17ME7NJhWqkNM8fX51VNI8e-US7Ck6z5BUadAg/photo/AF1QipPAksdLPJ7pNHh3SAmqYFxTOhsVGl_LVTqjLTvA?key=dkl0TzU5TGQ1aEkwdldTRDA2cFJzdEpzZHRrQnBB'} style="width:100%">
+    <div class="title">HUNGRY HEROES</div>
+  </div>
+    `;
+    const markup3 = `
+    <div class="mySlides fade">
+    <img src=${'https://photos.google.com/share/AF1QipP5v-DGnBOS5nfwBVxI4DO75JzU17ME7NJhWqkNM8fX51VNI8e-US7Ck6z5BUadAg/photo/AF1QipMqiLNWFE8zKq_wmEWdpG5mYaOXAFBBm3dWHb9J?key=dkl0TzU5TGQ1aEkwdldTRDA2cFJzdEpzZHRrQnBB'} style="width:100%">
+    <div class="title">HUNGRY HEROES</div>
+  </div>
+    `;
+    specialContainer.append(markup1);
+    specialContainer.append(markup2);
+    specialContainer.append(markup3);
+  };
+
+  // ----- loads specials from the menu_items and then sets the first item to be visible ----- //
+  const loadStock = function() {
+    renderStockPhotos();
+    // ----- this sets the first item to be visible ----- //
+    showSlides();
+  };
+
+  loadStock();
 });
