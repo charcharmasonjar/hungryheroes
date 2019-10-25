@@ -2,22 +2,84 @@
 width: 0;
 height: 0;
 border-style: solid;
-border-width: 18.99vw 95.4vw 15vw 0;
+border-width: 20vw 120vw 20vw 0;
 border-color: transparent #00bcd4 transparent transparent;
 position: fixed;
 z-index:2000;
-top:0;
-right:0;
+top: 8.9vw;
+left: -58.3vw;
+transform: rotate(205deg);
 }
 
 #triangle-2 {
 width: 0;
 height: 0;
 border-style: solid;
-border-width: 19.05vw 95.4vw 0 0;
+border-width: 18.7vw 95.4vw 0 0;
 border-color: #00bcd4 transparent transparent transparent;
 position: fixed;
 z-index: 2000;
 top:0;
-left: 3.9vw;
+left: 4.2vw;
+}
+
+#triangle-3 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 18.75vw 95.2vw 15vw 0;
+  border-color: transparent #a1e6f0 transparent transparent;
+  position: fixed;
+  z-index:2000;
+  top:0;
+  right:0;
+}
+
+#triangle-4 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 18.9vw 0vw 0vw 26.4vw;
+  border-color: #00bcd4 transparent transparent transparent;
+  position: fixed;
+  z-index: 2000;
+  top:0;
+  left: -22.2vw;
+  }
+
+#triangle-5 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 21.5vw 102vw 26.2vw 0;
+  border-color: transparent #00bcd4 transparent transparent;
+  position: fixed;
+  z-index:2000;
+  top: 14.9vw;
+  left: -0.0vw;
+  transform: rotate(20.5deg);
+}
+
+#triangle-6 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0vw 86vw 24vw 0vw;
+  border-color: transparent transparent #00bcd4 transparent;
+  position: fixed;
+  z-index: 2000;
+  top:38.6vw;
+  left: 0vw;
+}
+
+#initial-logo {
+  z-index: 2001;
+  position: fixed;
+  left: 50vw;
+  top: 14vw;
+  font-size: 110px;
+  font-weight: bold;
+  font-family: 'Coda Caption', sans-serif;
+  color: white;
+
 }
