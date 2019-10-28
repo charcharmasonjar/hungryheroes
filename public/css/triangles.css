@@ -89,28 +89,6 @@
 
 }
 
-/* triangle fade animation */
-
-.fade-triangle {
-  -webkit-animation-name: fade-triangle;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-  animation-name: fade-triangle;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes fade-triangle {
-  0% { opacity: 1; }
-  100% {opacity: 0;}
-  /* 100% { display: none; } */
-}
-
-@keyframes fade-triangle {
-  0% { opacity: 1; }
-  100% {opacity: 0;}
-  /* 100% { display: none; } */
-}
 
 
 /* Specific Animations that For slide-out for each triangle*/
@@ -226,11 +204,11 @@
 
 .slide-in-triangle-1 {
   -webkit-animation-name: slide-triangle-1;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-direction: reverse;
   -webkit-animation-fill-mode:reverse;
   animation-name: slide-triangle-1;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-direction: reverse;
   animation-fill-mode: reverse;
 }
@@ -250,11 +228,11 @@
 
 .slide-in-triangle-24 {
   -webkit-animation-name: slide-triangle-24;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-direction: reverse;
   -webkit-animation-fill-mode: reverse;
   animation-name: slide-triangle-24;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-direction: reverse;
   animation-fill-mode: reverse;
 }
@@ -273,11 +251,11 @@
 
 .slide-in-triangle-3 {
   -webkit-animation-name: slide-triangle-3;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-direction: reverse;
   -webkit-animation-fill-mode: reverse;
   animation-name: slide-triangle-3;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-direction: reverse;
   animation-fill-mode: reverse;
 }
@@ -297,11 +275,11 @@
 
 .slide-in-triangle-5 {
   -webkit-animation-name: slide-triangle-5;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-direction: reverse;
   -webkit-animation-fill-mode: reverse;
   animation-name: slide-triangle-5;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-direction: reverse;
   animation-fill-mode: reverse;
 }
@@ -320,11 +298,11 @@
 
 .slide-in-triangle-6 {
   -webkit-animation-name: slide-triangle-6;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-direction: reverse;
   -webkit-animation-fill-mode: reverse;
   animation-name: slide-triangle-6;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-direction: reverse;
   animation-fill-mode: reverse;
 }
@@ -338,5 +316,30 @@
 @keyframes slide-triangle-6 {
   0% { transform: translate(0vw, 0vw) }
   100% {transform: translate(-30vw, 30vw);}
+  /* 100% { display: none; } */
+}
+
+/* triangle fade animation */
+
+.fade-triangle {
+  -webkit-animation-name: fade-triangle;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: fade-triangle;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-triangle {
+  0% { opacity: 1; }
+  100% {opacity: 0;}
+  /* 100% { display: none; } */
+}
+
+@keyframes fade-triangle {
+  0% { opacity: 1; }
+  100% {opacity: 0;}
   /* 100% { display: none; } */
 }
