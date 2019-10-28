@@ -109,11 +109,10 @@ $(document).ready(function() {
             $('.cart-total-amount').html(`Your cart is empty`);
             for (let item in cart) delete cart[item];
           });
-          $("#success-modal").toggleClass('show');
+          triangleSuccessUnfold();
         })
         .fail((error) => {
-          triangleSuccessUnfold();
-          //$('#fail-modal-login').toggleClass('show');
+          $('#fail-modal-login').toggleClass('show');
           $(".payment-container").slideToggle("slow");
 
         });
