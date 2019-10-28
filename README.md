@@ -36,15 +36,11 @@ Ngrok for establishing secure tunnels from a public endpoint to a locally runnin
 
 ## Screen Shots
 
-![opening page](docs/opening.gif)
-
-![menu page](docs/menu_page.png)
-
-![side container](docs/sides.png)
-
-![cart container](docs/cart.png)
-
-![drop login page](docs/drop_login.png)
+![opening page](https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/opening.gif?raw=true)
+![menu page](https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/menu_page.png?raw=true)
+![side container](https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/sides.png?raw=true)
+![cart container](https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/cart.png?raw=true)
+![drop login page](https://github.com/charcharmasonjar/hungryheroes/blob/master/docs/drop_login.png?raw=true)
 
 ## Warnings & Tips
 
