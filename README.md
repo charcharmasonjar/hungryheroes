@@ -36,7 +36,7 @@ Ngrok for establishing secure tunnels from a public endpoint to a locally runnin
 
 ## Screen Shots
 
-
+![opening page](docs/opening.gif)
 
 ## Warnings & Tips
 
