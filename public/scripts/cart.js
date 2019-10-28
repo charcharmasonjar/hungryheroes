@@ -2,6 +2,73 @@ const cart = {};
 
 $(document).ready(function() {
 
+  // Remove Triangles on Click //
+  const triangleSuccessFold = function() {
+    const triangle1 = $('#triangle-1');
+    const triangle2 = $('#triangle-2');
+    const triangle3 = $('#triangle-3');
+    const triangle4 = $('#triangle-4')
+    const triangle5 = $('#triangle-5');
+    const triangle6 = $('#triangle-6');
+    const logo = $('#initial-logo');
+
+    triangle1.addClass('fade-triangle');
+    triangle2.addClass('fade-triangle');
+    triangle3.addClass('fade-triangle');
+    triangle4.addClass('fade-triangle');
+    triangle5.addClass('fade-triangle');
+    triangle6.addClass('fade-triangle');
+    logo.addClass('fade-triangle');
+    setTimeout(()=> {
+      triangle1[0].style.display = 'none';
+      triangle1.removeClass('slide-in-triangle-1');
+      triangle1.removeClass('fade-triangle');
+      triangle2[0].style.display = 'none';
+      triangle2.removeClass('slide-in-triangle-24');
+      triangle2.removeClass('fade-triangle');
+      triangle3[0].style.display = 'none';
+      triangle3.removeClass('slide-in-triangle-3');
+      triangle3.removeClass('fade-triangle');
+      triangle4[0].style.display = 'none';
+      triangle4.removeClass('slide-in-triangle-24');
+      triangle4.removeClass('fade-triangle');
+      triangle5[0].style.display = 'none';
+      triangle5.removeClass('slide-in-triangle-5');
+      triangle5.removeClass('fade-triangle');
+      triangle6[0].style.display = 'none';
+      triangle6.removeClass('slide-in-triangle-6');
+      triangle6.removeClass('fade-triangle');
+      logo[0].style.display = 'none';
+      logo.removeClass('slide-in-triangle-3');
+      logo.removeClass('fade-triangle');
+    }, 1000, triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, logo);
+  }
+
+  // Display Triangles On Success //
+  const triangleSuccessUnfold = function() {
+    const triangle1 = $('#triangle-1');
+    const triangle2 = $('#triangle-2');
+    const triangle3 = $('#triangle-3');
+    const triangle4 = $('#triangle-4')
+    const triangle5 = $('#triangle-5');
+    const triangle6 = $('#triangle-6');
+    const logo = $('#initial-logo');
+    triangle1[0].style.display = 'block';
+    triangle1.addClass('slide-in-triangle-1');
+    triangle2[0].style.display = 'block';
+    triangle2.addClass('slide-in-triangle-24');
+    triangle3[0].style.display = 'block';
+    triangle3.addClass('slide-in-triangle-3');
+    triangle4[0].style.display = 'block';
+    triangle4.addClass('slide-in-triangle-24');
+    triangle5[0].style.display = 'block';
+    triangle5.addClass('slide-in-triangle-5');
+    triangle6[0].style.display = 'block';
+    triangle6.addClass('slide-in-triangle-6');
+    logo[0].style.display = 'block';
+    logo[0].innerHTML = 'SUCCESS!';
+    logo.addClass('slide-in-triangle-3');
+  }
   // ----- cart-body when cart header is clicked ----- //
   $(".cart-header").click(() => {
     $(".hide-cart").slideToggle("slow", () => {
@@ -75,7 +142,7 @@ $(document).ready(function() {
 
   $('#fracture').click(() => {
     if($('#initial-logo')[0].innerHTML === 'SUCCESS!'){
-    triangleSuccessFold();
+      triangleSuccessFold();
     }
   })
 
@@ -83,91 +150,6 @@ $(document).ready(function() {
     $(event.target).closest('.modal').toggleClass('show');
   })
 
-  const triangleSuccessFold = function() {
-  const triangle1 = $('#triangle-1');
-    triangle1.addClass('fade-triangle');
-    setTimeout(()=> {
-      triangle1[0].style.display = 'none';
-      triangle1.removeClass('slide-in-triangle-1');
-      triangle1.removeClass('fade-triangle');
-    }, 1000, triangle1);
-
-  const triangle2 = $('#triangle-2');
-  const triangle4 = $('#triangle-4')
-    triangle2.addClass('fade-triangle');
-    triangle4.addClass('fade-triangle');
-    setTimeout(()=> {
-      triangle2[0].style.display = 'none';
-      triangle2.removeClass('slide-in-triangle-24');
-      triangle2.removeClass('fade-triangle');
-      triangle4[0].style.display = 'none';
-      triangle4.removeClass('slide-in-triangle-24');
-      triangle4.removeClass('fade-triangle');
-    }, 1000, triangle2, triangle4);
-
-  const triangle5 = $('#triangle-5');
-    triangle5.addClass('fade-triangle');
-    setTimeout(()=> {
-      triangle5[0].style.display = 'none';
-      triangle5.removeClass('slide-in-triangle-5');
-      triangle5.removeClass('fade-triangle');
-    }, 1000, triangle5);
-
-  const triangle6 = $('#triangle-6');
-    triangle6.addClass('fade-triangle');
-    setTimeout(()=> {
-      triangle6[0].style.display = 'none';
-      triangle6.removeClass('slide-in-triangle-6');
-      triangle6.removeClass('fade-triangle');
-    }, 1000, triangle6);
-
-  const triangle3 = $('#triangle-3');
-    triangle3.addClass('fade-triangle');
-    setTimeout(()=> {
-      triangle3[0].style.display = 'none';
-      triangle3.removeClass('slide-in-triangle-3');
-      triangle3.removeClass('fade-triangle');
-    }, 1000, triangle3);
-
-    const logo = $('#initial-logo');
-    logo.addClass('fade-triangle');
-    setTimeout(()=> {
-      logo[0].style.display = 'none';
-      logo.removeClass('slide-in-triangle-3');
-      logo.removeClass('fade-triangle');
-    }, 500, logo);
-  }
-
-  const triangleSuccessUnfold = function() {
-    const triangle1 = $('#triangle-1');
-    const triangle2 = $('#triangle-2');
-    const triangle3 = $('#triangle-3');
-    const triangle4 = $('#triangle-4')
-    const triangle5 = $('#triangle-5');
-    const triangle6 = $('#triangle-6');
-    const logo = $('#initial-logo');
-    triangle1[0].style.display = 'block';
-    triangle1.addClass('slide-in-triangle-1');
-    triangle2[0].style.display = 'block';
-    triangle2.addClass('slide-in-triangle-24');
-    setTimeout(()=> {triangle2.addClass('success-triangle');}, 500, triangle2);
-    triangle3[0].style.display = 'block';
-    triangle3.addClass('slide-in-triangle-3');
-    setTimeout(()=> {triangle3.addClass('success-triangle');}, 500, triangle3);
-    triangle4[0].style.display = 'block';
-    triangle4.addClass('slide-in-triangle-24');
-    setTimeout(()=> {triangle4.addClass('success-triangle');}, 500, triangle4);
-    triangle5[0].style.display = 'block';
-    triangle5.addClass('slide-in-triangle-5');
-    setTimeout(()=> {triangle5.addClass('success-triangle');}, 500, triangle5);
-    triangle6[0].style.display = 'block';
-    triangle6.addClass('slide-in-triangle-6');
-    setTimeout(()=> {triangle6.addClass('success-triangle');}, 500, triangle6);
-    logo[0].style.display = 'block';
-    logo[0].innerHTML = 'SUCCESS!';
-    logo.addClass('slide-in-triangle-3');
-    setTimeout(()=> {logo.addClass('success-triangle');}, 500, logo);
-  }
 
 
 });
