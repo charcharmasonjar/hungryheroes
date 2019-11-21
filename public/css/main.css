@@ -106,22 +106,6 @@ hr.light {
   margin-top: 10px
 }
 
-#success-pop {
-  max-height: 230px;
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
-  font-size: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#success-text {
-  color: white;
-  font-family: 'Changa One', sans-serif;
-  font-size: 64px;
-}
-
 .show {
   display: block;
 }
